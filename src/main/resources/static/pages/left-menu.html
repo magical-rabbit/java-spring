@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+
+
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="fas fa-circle nav-icon"></i>
+            <p>Level 1</p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-circle"></i>
+            <p>
+                Level 1
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Level 2</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                        Level 2
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>Level 3</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>Level 3</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>Level 3</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+
+
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-circle"></i>
+            <p>
+                頁面模板
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link" onclick="load_content(`project-add.html`)">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>新增頁</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link" onclick="load_content(`project-list.html`)">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>列表</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-circle"></i>
+            <p>
+                用户管理
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link" onclick="load_content(`project-add.html`)">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>新增用户</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link" onclick="load_content(`user-list.html`)">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>用户列表</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    <div id="show-menu">
+
+    </div>
+
+
+</body>
+
+<script src="../js/left-list.js"></script>
+
+</html>

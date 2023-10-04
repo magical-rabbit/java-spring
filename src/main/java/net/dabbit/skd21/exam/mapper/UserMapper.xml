@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.dabbit.skd21.exam.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="net.dabbit.skd21.exam.entity.User">
+        <id column="id" property="id"></id>
+        <result column="username" property="username"></result>
+        <result column="password" property="password"></result>
+        <result column="real_name" property="realName"></result>
+        <result column="sex" property="sex"></result>
+        <result column="sno" property="sno"></result>
+        <result column="admission_date" property="admissionDate"></result>
+        <result column="faculty_id" property="facultyId"></result>
+        <result column="major_id" property="majorId"></result>
+        <result column="class_id" property="classId"></result>
+    </resultMap>
+
+
+
+
+<!--    <resultMap id="" type=""-->
+
+    <select id="login" parameterType="net.dabbit.skd21.exam.entity.User" resultMap="BaseResultMap">
+        SELECT * FROM user WHERE username = #{username} AND password = #{password}
+    </select>
+
+
+<!--
+#{offset}
+调用了getter方法
+
+#{属性名} 如果是字符串，自动补充一个单引号
+${属性名} 原样输出
+
+-->
+    <select id="list" parameterType="net.dabbit.skd21.exam.entity.JsGridData" resultMap="BaseResultMap">
+        SELECT * FROM user
+        <if test="search != ''">
+            where real_name like '%${search}%'
+        </if>
+        limit #{offset},#{pageSize}
+    </select>
+
+
+<!--    返回值能直接被result接受的用resulttype, 不行的用map做中转-->
+    <select id="count" parameterType="net.dabbit.skd21.exam.entity.JsGridData" resultType="java.lang.Long">
+        SELECT count(*) FROM user
+        <if test="search != ''">
+            where real_name like '%${search}%'
+        </if>
+    </select>
+
+
+
+    <delete id="del" parameterType="java.lang.Integer">
+        delete from user where
+        id = #{id}
+    </delete>
+
+
+    <insert id="add" parameterType="com.exam.entity.User">
+        INSERT INTO user
+        (
+        <if test="username != null">username,</if>
+        <if test="password != null">password,</if>
+        <if test="realName != null">real_name,</if>
+        <if test="sex != null">sex,</if>
+        <if test="sno != null">sno,</if>
+        admission_date,
+        <if test="facultyId != null">faculty_id,</if>
+        <if test="majorId != null">major_id,</if>
+        <if test="classId != null">class_id</if>
+        )
+        VALUES
+        (
+        <if test="username != null">#{username},</if>
+        <if test="password != null">#{password},</if>
+        <if test="realName != null">#{realName},</if>
+        <if test="sex != null">#{sex},</if>
+        <if test="sno != null">#{sno},</if>
+        CURRENT_DATE(),
+        <if test="facultyId != null">#{facultyId},</if>
+        <if test="majorId != null">#{majorId},</if>
+        <if test="classId != null">#{classId}</if>
+        )
+    </insert>
+
+    <update id="update" parameterType="net.dabbit.skd21.exam.entity.User">
+        update user set
+        <if test="username != null">`username` = #{username},</if>
+        <if test="password != null">`password` = #{password},</if>
+        <if test="realName != null">`real_name` = #{realName},</if>
+        <if test="sex != null">`sex`=#{sex},</if>
+        <if test="sno != null">`sno`=#{sno},</if>
+        <if test="facultyId != null">`faculty_id` = #{facultyId},</if>
+        <if test="majorId != null">`major_id` = #{majorId},</if>
+        <if test="classId != null">`class_id` = #{classId}</if>  
+        where id = #{id}
+    </update>
+
+
+
+</mapper>
