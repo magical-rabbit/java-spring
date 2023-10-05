@@ -92,13 +92,13 @@ var del=function(id){
         url:"/user/del",
         data:{"id":id},
         dataType: "json",
-        success:function (){
-            if(data.code!="200"){
+        success:function (response){
+         //   debugger;
+            if(response['code']!=="200"){
                 alert("删除失败")
                 console.log(`[sys]Del ${id} failed.`)
             }
-
-            if(data.code=="200"){
+            if(response['code']==="200"){
                 alert("删除成功")
                 console.log(`[sys]Del ${id} succeed.`)
             }
