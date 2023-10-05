@@ -73,4 +73,9 @@
     </insert>
 
 
+    <delete id="delByPrimaryKey" parameterType="java.lang.Integer">
+        delete from menu
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
 </mapper>

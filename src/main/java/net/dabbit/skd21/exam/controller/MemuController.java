@@ -47,4 +47,12 @@ public class MemuController {
         String res = menuService.add(menu);
         return res;
     }
+
+
+    @RequestMapping(value = "/del",produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public String del(Integer id){
+        String res = menuService.del(id);
+        return res;
+    }
 }

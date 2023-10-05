@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service;
 public interface MenuService {
     String list(JsGridData jsGridData);
     String add(Menu menu);
+    String del(Integer id);
 }

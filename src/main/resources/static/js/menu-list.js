@@ -40,10 +40,32 @@ $(function () {
             {
                 title: "操作", name: "id", type: "text", width: 60, align: "center",
                 itemTemplate: function(value, item){
-                    return "<a href='javascript:void(0)' onclick='alert("+value+");'>修改</a>"
-                        + "&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:void(0)' onclick='alert("+value+");'>删除</a>";
+
+                    res_str = `<a href='javascript:void(0)' onclick='modify_menu_func(${value});'>修改</a>`
+                        + "&nbsp;&nbsp;&nbsp;&nbsp;"+`<a href='javascript:void(0)' onclick="del_menu_fuc(${value});">删除</a>`;
+                    return res_str
                 }
             }
         ]
     });
 });
+
+
+var del_menu_fuc = function (del_id) {
+    $.ajax({
+        type:"post",
+        url:"/menu/del",
+        data:{"id":del_id},
+        dataType: "json",
+        success:function (data){
+            if(data.code!="200"){
+                alert("删除失败")
+                console.log(`[sys]Del ${del_id} failed.`)
+            }
+            if(data.code=="200"){
+                alert("删除成功")
+                console.log(`[sys]Del ${del_id} succeed.`)
+            }
+        }
+    })
+}

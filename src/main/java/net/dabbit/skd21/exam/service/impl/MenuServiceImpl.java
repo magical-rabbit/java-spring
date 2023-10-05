@@ -39,5 +39,17 @@ public class MenuServiceImpl implements MenuService{
         return JSONObject.toJSONString(msg);
     }
 
+    @Override
+    public String del(Integer id) {
+        int del_ = menuMapper.delByPrimaryKey(id);
+        Map<String,String> msg = new HashMap<>();
+        msg.put("msg","2333");
+        //如果大于0表示添加成功
+        if(del_>0){
+            msg.put("code","200");
+        }
+        return JSONObject.toJSONString(msg);
+    }
+
 
 }
