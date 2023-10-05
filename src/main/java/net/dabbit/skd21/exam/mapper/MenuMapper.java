@@ -12,4 +12,5 @@ public interface MenuMapper {
     Long count(JsGridData jsGridData);
     Integer add(Menu menu);
     Integer delByPrimaryKey(Integer id);
+    Integer updateByPrimaryKeySelective(Menu menu);
 }

@@ -1,3 +1,5 @@
+var menu_list_arr = {};
+
 $(function () {
     $("#jsGrid1").jsGrid({
 //        height: "100%",
@@ -41,6 +43,8 @@ $(function () {
                 title: "操作", name: "id", type: "text", width: 60, align: "center",
                 itemTemplate: function(value, item){
 
+                    menu_list_arr[value]=item
+
                     res_str = `<a href='javascript:void(0)' onclick='modify_menu_func(${value});'>修改</a>`
                         + "&nbsp;&nbsp;&nbsp;&nbsp;"+`<a href='javascript:void(0)' onclick="del_menu_fuc(${value});">删除</a>`;
                     return res_str
@@ -68,4 +72,26 @@ var del_menu_fuc = function (del_id) {
             }
         }
     })
+}
+
+var modify_menu_func = function (update_id){
+    var obj = menu_list_arr[update_id]
+    $.ajax({
+        type: "get",
+        url: "./menu-add.html",
+        success: function(data){ // 这个参数data就是读取到的页面的HTML代码
+            //console.log(data);
+            $("#content").html(data); // 加载新增修改页
+            
+            //数据回填
+            $("#id").val(obj.id)
+            $("#menuName").val(obj.menuName)
+            $("#menuCode").val(obj.menuCode)
+            $("#menuLevel").val(obj.menuLevel)
+            $("#menuUrl").val(obj.menuUrl)
+            $("#parentId").val(obj.parentId)
+            $("#sort").val(obj.sort)
+            
+        }
+    });
 }

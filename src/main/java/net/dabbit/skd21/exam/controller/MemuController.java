@@ -55,4 +55,11 @@ public class MemuController {
         String res = menuService.del(id);
         return res;
     }
+
+    @RequestMapping(value = "/modify",produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public String modify(Menu menu){
+        String res = menuService.modify(menu);
+        return res;
+    }
 }
