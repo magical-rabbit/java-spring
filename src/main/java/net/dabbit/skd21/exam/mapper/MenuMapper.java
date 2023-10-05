@@ -10,7 +10,7 @@ import java.util.List;
 public interface MenuMapper {
     List<Menu> list(JsGridData jsGridData);
     Long count(JsGridData jsGridData);
-    Integer add(Menu menu);
-    Integer delByPrimaryKey(Integer id);
-    Integer updateByPrimaryKeySelective(Menu menu);
+    int add(Menu menu);
+    int delByPrimaryKey(Integer id);
+    int updateByPrimaryKeySelective(Menu menu);
 }

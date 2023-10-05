@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.dabbit.skd21.exam.mapper.QuestionTemplateMapper">
-    <resultMap id="BaseResultMap" type="net.dabbit.skd21.exam.mapper.QuestionTemplateMapper">
+
+    <resultMap id="BaseResultMap" type="net.dabbit.skd21.exam.entity.QuestionTemplate">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="template_name" jdbcType="VARCHAR" property="templateName" />
         <result column="major_id" jdbcType="INTEGER" property="majorId" />
@@ -15,7 +16,7 @@
         <result column="aggregate_score" jdbcType="INTEGER" property="aggregateScore" />
     </resultMap>
 
-<!--    add -->
+    <!--    add -->
     <insert id="add" parameterType="net.dabbit.skd21.exam.entity.QuestionTemplate">
         insert into question_template
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -94,10 +95,13 @@
     <!--    获得列表-->
     <select id="list" parameterType="net.dabbit.skd21.exam.entity.JsGridData" resultMap="BaseResultMap">
         SELECT * FROM question_template
-        <if test="search != ''">
-            where real_name like '%${search}%'
-        </if>
+
         limit #{offset},#{pageSize}
+    </select>
+
+    <!-- 计数 -->
+    <select id="count" parameterType="net.dabbit.skd21.exam.entity.JsGridData" resultType="java.lang.Long">
+        select count(*) from question_template
     </select>
 
     <!--  修改  -->
