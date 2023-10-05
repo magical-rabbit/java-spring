@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -50,80 +51,102 @@
 
 <body>
 
+    <div id="dayi-form">
+        <div class="card-body">
+            <!--
+            院系、专业、学期、科目四个下拉列表，是一个三级联动
+            1、院系的下拉列表的选项是在页面加载的是自动去加载出来
+            2、专业的下拉列表选项加载，在选择院系的某个选项的时候触发，需要在院系的下拉列表onchange
+            3、学期的下拉列表选项加载，在选择专业的某个选项的时候触发，需要在专业的下拉列表onchange
+            4、科目的下拉列表选项加载，在选择学期的某个选项的时候触发，需要在学期的下拉列表onchange
+            -->
+            <div class="form-group">
+                <label for="faculty_id">院系</label>
+                <select id="faculty_id" class="form-control custom-select" onchange="load_major_options()">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="major_id">专业</label>
+                <select id="major_id" class="form-control custom-select" onchange="load_class_options()">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="major_semester_id">学期</label>
+                <select id="major_semester_id" class="form-control custom-select" onchange="load_class_options()">
 
-<div class="card-body">
-    <!--
-        院系、专业、学期、科目四个下拉列表，是一个三级联动
-        1、院系的下拉列表的选项是在页面加载的是自动去加载出来
-        2、专业的下拉列表选项加载，在选择院系的某个选项的时候触发，需要在院系的下拉列表onchange
-        3、学期的下拉列表选项加载，在选择专业的某个选项的时候触发，需要在专业的下拉列表onchange
-        4、科目的下拉列表选项加载，在选择学期的某个选项的时候触发，需要在学期的下拉列表onchange
-    -->
-    <div class="form-group">
-        <label for="faculty_id">院系</label>
-        <select id="faculty_id" class="form-control custom-select" onchange=" load_major_options()">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subject_id">科目</label>
+                <select id="subject_id" class="form-control custom-select" onchange="load_class_options()">
+                </select>
+            </div>
 
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="major_id">专业</label>
-        <select id="major_id" class="form-control custom-select" onchange="load_class_options()">
+            <div class="form-group">
+                <label for="template_name">模板名称</label>
+                <input type="text" id="template_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="single_num">单选题数目</label>
+                <input type="text" id="single_num" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="single_score">单选题分值</label>
+                <input type="text" id="single_score" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="single_difficulty_proportion">单选题难度比例(易:中:难:很难)</label>
+                <input type="text" id="single_difficulty_proportion" class="form-control" placeholder="例如5:3:1:1">
+            </div>
+            <div class="form-group">
+                <label for="multiple_num">多选题数目</label>
+                <input type="text" id="multiple_num" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="multiple_score">多选题分值</label>
+                <input type="text" id="multiple_score" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="multiple_difficulty_proportion">多选题难度比例(易:中:难:很难)</label>
+                <input type="text" id="multiple_difficulty_proportion" class="form-control" placeholder="例如5:3:1:1">
+            </div>
 
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="major_semester_id">学期</label>
-        <select id="major_semester_id" class="form-control custom-select" onchange="load_class_options()">
+            <!-- 按钮 -->
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" onclick="add_template_func()">保存</button>
+            </div>
+           
+            <!--
+        aggregate_score，总分，由程序计算，不需要手填
+        总分 = 单选题分值 * 单选题数目 + 多选题分值 * 多选题数目
+        -->
+        </div>
 
-        </select>
     </div>
-    <div class="form-group">
-        <label for="subject_id ">科目</label>
-        <select id="subject_id " class="form-control custom-select" onchange="load_class_options()">
-
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="template_name">模板名称</label>
-        <input type="text" id="template_name" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="single_num">单选题数目</label>
-        <input type="text" id="single_num" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="single_score">单选题分值</label>
-        <input type="text" id="single_score" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="single_difficulty_proportion">单选题难度比例(易:中:难:很难)</label>
-        <input type="text" id="single_difficulty_proportion" class="form-control"
-               placeholder="例如5:3:1:1">
-    </div>
-    <div class="form-group">
-        <label for="multiple_num">多选题数目</label>
-        <input type="text" id="multiple_num" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="multiple_score">多选题分值</label>
-        <input type="text" id="multiple_score" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="multiple_difficulty_proportion">多选题难度比例(易:中:难:很难)</label>
-        <input type="text" id="multiple_difficulty_proportion" class="form-control"
-               placeholder="例如5:3:1:1">
-    </div>
-    <!--
-    aggregate_score，总分，由程序计算，不需要手填
-    总分 = 单选题分值 * 单选题数目 + 多选题分值 * 多选题数目
-    -->
-</div>
 
 
+    <!-- jQuery -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../dist/js/demo.js"></script>
+
+
+    <!-- 我有点忍不了了 -->
+    <!-- 想写个通用的JS -->
+
+    <script src="../js/dayi-lib/libs-1.js"></script>
+
+
+    <!-- 模版相关JS -->
+    <script src="../js/template.js"></script>
 
 
 
 
 </body>
+
 </html>
