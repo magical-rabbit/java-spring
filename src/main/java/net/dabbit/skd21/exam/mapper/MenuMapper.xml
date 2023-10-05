@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.dabbit.skd21.exam.mapper.MenuMapper">
+
     <resultMap id="BaseResultMap" type="net.dabbit.skd21.exam.entity.Menu">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="menu_code" jdbcType="VARCHAR" property="menuCode" />
@@ -10,6 +11,8 @@
         <result column="parent_id" jdbcType="INTEGER" property="parentId" />
         <result column="sort" jdbcType="INTEGER" property="sort" />
     </resultMap>
+
+
     <select id="list" parameterType="net.dabbit.skd21.exam.entity.JsGridData" resultMap="BaseResultMap">
         select * from menu
         limit #{offset},#{pageSize}
@@ -19,8 +22,55 @@
         select count(*) from menu
     </select>
 
-    <insert id="add" parameterMap="net.dabbit.skd21.exam.entity.JsGridData" resultType="java.lang.Integer">
-
+    <insert id="add" parameterType="net.dabbit.skd21.exam.entity.Menu" >
+        insert into menu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="menuCode != null">
+                menu_code,
+            </if>
+            <if test="menuName != null">
+                menu_name,
+            </if>
+            <if test="menuUrl != null">
+                menu_url,
+            </if>
+            <if test="menuLevel != null">
+                menu_level,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="menuCode != null">
+                #{menuCode,jdbcType=VARCHAR},
+            </if>
+            <if test="menuName != null">
+                #{menuName,jdbcType=VARCHAR},
+            </if>
+            <if test="menuUrl != null">
+                #{menuUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="menuLevel != null">
+                #{menuLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=INTEGER},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=INTEGER},
+            </if>
+        </trim>
     </insert>
+
 
 </mapper>

@@ -10,5 +10,5 @@ import java.util.List;
 public interface MenuMapper {
     List<Menu> list(JsGridData jsGridData);
     Long count(JsGridData jsGridData);
-    Integer add(JsGridData jsGridData);
+    Integer add(Menu menu);
 }

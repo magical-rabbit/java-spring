@@ -27,8 +27,8 @@ public class MenuServiceImpl implements MenuService{
     }
 
     @Override
-    public String add(JsGridData jsGridData) {
-        int add_ = menuMapper.add(jsGridData);
+    public String add(Menu menu) {
+        int add_ = menuMapper.add(menu);
         Map<String,String> msg = new HashMap<>();
         msg.put("msg","999");
 

@@ -2,6 +2,7 @@ package net.dabbit.skd21.exam.controller;
 
 
 import net.dabbit.skd21.exam.entity.JsGridData;
+import net.dabbit.skd21.exam.entity.Menu;
 import net.dabbit.skd21.exam.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,8 +43,8 @@ public class MemuController {
 
     @RequestMapping(value = "/add",produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String add(JsGridData jsGridData){
-        String res = menuService.add(jsGridData);
+    public String add(Menu menu){
+        String res = menuService.add(menu);
         return res;
     }
 }

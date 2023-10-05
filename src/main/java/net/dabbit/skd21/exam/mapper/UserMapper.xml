@@ -58,7 +58,7 @@ ${属性名} 原样输出
     </delete>
 
 
-    <insert id="add" parameterType="com.exam.entity.User">
+    <insert id="add" parameterType="net.dabbit.skd21.exam.entity.User">
         INSERT INTO user
         (
         <if test="username != null">username,</if>
