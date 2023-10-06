@@ -10,7 +10,7 @@
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.83.132:3306/ovo" userId="mybatis" password="123456">
+                        connectionURL="jdbc:mysql://super-rabbit.dayi.ink:18206/ovo" userId="mybatis" password="123456">
         </jdbcConnection>
         <!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
         connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:yycg" userId="yycg"  password="yycg">
@@ -22,7 +22,7 @@
         </javaTypeResolver>
 
         <!-- targetProject:生成PO类的位置 -->
-        <javaModelGenerator targetPackage="com.test.emis.entity"
+        <javaModelGenerator targetPackage="net.dabbit.skd21.exam.autogen.entity"
                             targetProject=".\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
@@ -31,14 +31,14 @@
         </javaModelGenerator>
 
         <!-- targetProject:mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="com.test.emis.mapper"
+        <sqlMapGenerator targetPackage="net.dabbit.skd21.exam.autogen.mapper"
                          targetProject=".\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
 
         <!-- targetPackage：mapper接口生成的位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.test.emis.mapper"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="net.dabbit.skd21.exam.autogen.mapper"
                              targetProject=".\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />

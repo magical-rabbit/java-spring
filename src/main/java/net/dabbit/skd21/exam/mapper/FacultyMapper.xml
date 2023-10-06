@@ -51,7 +51,7 @@
 
     <!--  删除  -->
     <delete id="del" parameterType="java.lang.Integer">
-        delete from question_template
+        delete from faculty
         where id = #{id,jdbcType=INTEGER}
     </delete>
 

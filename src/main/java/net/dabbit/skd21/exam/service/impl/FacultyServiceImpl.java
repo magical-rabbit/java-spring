@@ -3,9 +3,7 @@ package net.dabbit.skd21.exam.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ import com.alibaba.fastjson.JSONObject;
 import net.dabbit.skd21.exam.mapper.FacultyMapper;
 import net.dabbit.skd21.exam.entity.Faculty;
 import net.dabbit.skd21.exam.entity.JsGridData;
-import net.dabbit.skd21.exam.entity.QuestionTemplate;
 import net.dabbit.skd21.exam.service.FacultyService;
 
 @Service
@@ -42,7 +39,7 @@ public class FacultyServiceImpl implements FacultyService {
     @Override
     public String list(JsGridData jsdata) {
        Long cnt = facultyMapper.count(jsdata);
-        List<QuestionTemplate> list = facultyMapper.list(jsdata);
+        List<Faculty> list = facultyMapper.list(jsdata);
 
         //设置数据，设置列表数量
         jsdata.setData(list);
