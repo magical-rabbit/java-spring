@@ -2,7 +2,7 @@
 
 > 我发现，这网页（cmd.dayi.ink）好卡啊。
 >
-> 目前进度：0.63（也没想到有这么多内容，有点写不完了）
+> 目前进度：0.6（也没想到有这么多内容）
 
 请到这里继续看：
 
@@ -3815,6 +3815,47 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 ### 11.8.3 本章节修改的文件
 
 ![image-20231006220848434](https://lspro.icee.top/i/2023/10/06/652014f3ab3a8.png)
+
+
+
+## 11.9 科目管理
+
+
+### 11.9.1 后端
+
+感觉没什么好说的啦， 就是发现生成的xml又生成了一次，导致报错了。
+
+![](https://lspro.icee.top/i/2023/10/06/6520225519161.webp)
+
+
+
+### 11.9.2 前端
+
+还是用了dayi-lib的JS库，这样你就额可以10行写一个前端啦。
+
+![](https://cmd.dayi.ink/uploads/upload_7ed81181b0ba363a8213fd17b0670561.png)
+
+列表：
+![](https://cmd.dayi.ink/uploads/upload_47e8e3a4402bb44e092792ae0f6b27c3.png)
+
+修改:
+![](https://cmd.dayi.ink/uploads/upload_ba9f45343a8042b6ec1216f8fb5bc424.png)
+
+删除：
+![](https://cmd.dayi.ink/uploads/upload_0f467fb6113d0a98fffb8386aec7d68e.png)
+
+
+
+
+## 11.10 专业学期管理
+
+### 11.10.1 后端
+
+老样子
+
+
+
+
 
 
 
