@@ -3851,10 +3851,150 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
 ### 11.10.1 后端
 
+
+> 专业学期增删改查
+
 老样子
 
+服务
+![](https://cmd.dayi.ink/uploads/upload_011796977b4dda375466f5283b2fa0eb.png)
 
 
+实现:
+![](https://cmd.dayi.ink/uploads/upload_d621d3caf259ed1e47128b9452dfe50a.png)
+
+controller:
+
+![](https://cmd.dayi.ink/uploads/upload_655ec60658d3d8dabc4a7bde553434b7.png)
+
+
+测试:
+![](https://cmd.dayi.ink/uploads/upload_54de36794e9feb2735b47a3029354602.png)
+
+### 11.10.2 前端
+
+还是用超级dayi库
+
+
+1. 文件1：
+
+![](https://cmd.dayi.ink/uploads/upload_a4aca1a69266b9782897cb56fd60d0d8.png)
+![](https://cmd.dayi.ink/uploads/upload_ccc2767a804c088217f04be6a989721b.png)
+
+
+2. 文件2：
+
+![](https://cmd.dayi.ink/uploads/upload_a64333923065f5ca1a7fa74303d0174b.png)
+
+新增功能:
+
+把url提炼出来，这样就只需要修改一个地方啦。
+
+![](https://cmd.dayi.ink/uploads/upload_d7c8d2c688d16e0c850d30638ffd1c2d.png)
+
+3. 测试
+
+数据库：(修改菜单)
+![](https://cmd.dayi.ink/uploads/upload_ce21153dbaf6ebb0ccb9a0162bc9f60d.png)
+
+
+增加：
+![](https://cmd.dayi.ink/uploads/upload_5cfc2b53d4929b12d16471df4fc44695.png)
+
+
+列表：
+![](https://cmd.dayi.ink/uploads/upload_0e3a06ac17e49c3677d4f47f77dff791.png)
+
+列表2:(刚才新增的地方写错了一点)
+
+![](https://cmd.dayi.ink/uploads/upload_75ac7395875e627621476a56b7d38c31.png)
+
+
+修改:
+
+![](https://cmd.dayi.ink/uploads/upload_8b403e636afa74f5b928b73b99467133.png)
+
+
+删除:
+![](https://cmd.dayi.ink/uploads/upload_4f666ac4e08eb7211a516227f1bfddcb.png)
+
+![](https://cmd.dayi.ink/uploads/upload_1fbeb84416f15af5eaf08677037ff22d.png)
+
+
+### 11.10.3 本次修改的文件：
+
+![](https://cmd.dayi.ink/uploads/upload_3652b2e85d59f8a6ddb4ebef41c2ff98.png)
+
+
+### 11.10.4 目前的menu数据库:
+
+```sql
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for menu
+-- ----------------------------
+DROP TABLE IF EXISTS `menu`;
+CREATE TABLE `menu`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `menu_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `menu_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `menu_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `menu_level` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `parent_id` int NULL DEFAULT NULL,
+  `sort` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 60 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of menu
+-- ----------------------------
+INSERT INTO `menu` VALUES (25, 'menu-1-template', '一级菜单', '', '1', 0, 1);
+INSERT INTO `menu` VALUES (27, 'role', '角色管理', '', '1', 0, 3);
+INSERT INTO `menu` VALUES (28, 'user', '用户管理', '', '1', 0, 4);
+INSERT INTO `menu` VALUES (29, 'project-add', '二级菜单-新增/修改模板', 'project-add.html', '2', 25, 1);
+INSERT INTO `menu` VALUES (30, 'project-list', '二级菜单-数据列表模板', 'project-list.html', '2', 25, 2);
+INSERT INTO `menu` VALUES (31, 'choose', '二级菜单-在线考试模板', 'choose.html', '2', 25, 3);
+INSERT INTO `menu` VALUES (32, 'menu-add', '新增菜单', 'menu-add.html', '2', 26, 1);
+INSERT INTO `menu` VALUES (33, 'menu-list', '菜单列表', 'menu-list.html', '2', 26, 2);
+INSERT INTO `menu` VALUES (34, 'role-add', '新增角色', 'role-add.html', '2', 27, 1);
+INSERT INTO `menu` VALUES (35, 'role-list', '角色列表', 'role-list.html', '2', 27, 2);
+INSERT INTO `menu` VALUES (36, 'user-add', '用户管理', 'user-add.html', '2', 28, 1);
+INSERT INTO `menu` VALUES (37, 'questions', '题库管理', '', '1', 0, 5);
+INSERT INTO `menu` VALUES (38, 'file-upload', '试题上传', 'file-upload.html', '2', 37, 1);
+INSERT INTO `menu` VALUES (39, '', '', '', '', NULL, NULL);
+INSERT INTO `menu` VALUES (40, 'template', '模板管理', '', '1', 0, 1);
+INSERT INTO `menu` VALUES (41, 'template-list', '模板列表', 'template-list.html', '2', 40, 1);
+INSERT INTO `menu` VALUES (42, 'template-add', '模板新增', 'template.html', '2', 40, 2);
+INSERT INTO `menu` VALUES (43, 'exam', '试题管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (44, 'exam-uploader', '试题上传', 'test-upload.html', '2', 43, 1);
+INSERT INTO `menu` VALUES (45, 'faculty', '院系管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (46, 'faculty-add', '院系添加', 'faculty-add.html', '2', 45, 1);
+INSERT INTO `menu` VALUES (47, 'faculty-list', '院系列表', 'faculty-list.html', '2', 45, 2);
+INSERT INTO `menu` VALUES (48, 'major', '专业', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (49, 'major-add', '专业-添加', 'major-add.html', '2', 48, 1);
+INSERT INTO `menu` VALUES (50, 'major-list', '专业列表', 'major-list.html', '2', 48, 2);
+INSERT INTO `menu` VALUES (51, 'class', '班级管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (52, 'class-add', '班级新增', 'class-add.html', '2', 51, 1);
+INSERT INTO `menu` VALUES (53, 'class-list', '班级列表', 'class-list.html', '2', 51, 2);
+INSERT INTO `menu` VALUES (54, 'subject', '课程管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (55, 'subject-add', '课程添加', 'subject-add.html', '2', 54, 1);
+INSERT INTO `menu` VALUES (56, 'subject-list', '课程列表', 'subject-list.html', '2', 54, 2);
+INSERT INTO `menu` VALUES (57, 'major-semester', '专业学年管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (58, 'major-semester-add', '专业学年增加', 'major-semester-add.html', '2', 57, 1);
+INSERT INTO `menu` VALUES (59, 'major-semester-list', '专业学年列表', 'major-semester-list.html', '2', 57, 2);
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+```
+
+![](https://cmd.dayi.ink/uploads/upload_d56abc71a4ef8e70d74cb7bab5164b65.png)
+
+
+
+## 11.11 试卷管理
 
 
 

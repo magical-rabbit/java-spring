@@ -31,3 +31,11 @@ INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `p
 INSERT INTO `menu` (`menu_code`, `menu_name`, `menu_level`, `parent_id`, `sort`) VALUES ('subject', '课程管理', '1', '0', '1');
 INSERT INTO `menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('subject-add', '课程添加', 'subject-add.html', '2', '54', '1');
 INSERT INTO `menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('subject-list', '课程列表', 'subject-list.html', '2', '54', '2');
+
+
+
+--专业学年
+INSERT INTO `ovo`.`major_semester` (`major_id`, `school_year`, `semester`) VALUES ('1', '2022', '1');
+INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_level`, `parent_id`, `sort`) VALUES ('major-semester', '专业学年管理', '1', '0', '1');
+INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('major-semester-add', '专业学年增加', 'major-semester-add.html', '2', '57', '1');
+INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('major-semester-list', '专业学年列表', 'major-semester-list.html', '2', '57', '2');

@@ -56,8 +56,16 @@
 
 
             <div class="form-group">
-                <label for="subject_name">课程名</label>
-                <input type="text" id="subject_name" class="form-control">
+                <label for="major_id">专业ID</label>
+                <input type="text" id="major_id" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="school_year">学年（如2023）</label>
+                <input type="text" id="school_year" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="semester">学期（如1）</label>
+                <input type="text" id="semester" class="form-control">
             </div>
 
             <!-- 按钮 -->
@@ -88,7 +96,7 @@
     <script>
         var add_template_func = function () {
             var formData = collectFormData('.card-body');
-            sendDataToBackend("/subject/add", formData, function (response) { alert("新增成功"); }, function (response) { alert("新增失败"); });
+            sendDataToBackend("/major-semester/add", formData, function (response) { alert("新增成功"); }, function (response) { alert("新增失败"); });
         }
     </script>
 
