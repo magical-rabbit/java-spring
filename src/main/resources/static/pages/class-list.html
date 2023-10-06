@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../plugins/jsgrid/jsgrid.min.css">
+    <link rel="stylesheet" href="../plugins/jsgrid/jsgrid-theme.min.css">
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+</head>
+
+<body>
+
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <!-- 查询框 -->
+                <div class="input-group">
+                    <input type="search" id="search" class="form-control form-control-lg" placeholder="请输入姓名关键字">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-lg btn-default" onclick="load_page()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-header -->
+
+            <div class="card-body">
+                <div id="jsGrid1"></div>
+            </div>
+
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../plugins/jsgrid/jsgrid.min.js"></script>
+    <script src="../dist/js/adminlte.min.js"></script>
+    <script src="../dist/js/demo.js"></script>
+
+
+    <!-- <script src="../js/jquery-3.7/jquery-3.7.1.js"></script> -->
+
+    <script src="../js/dayi-lib/check_.js"></script>
+    <script src="../js/dayi-lib/load_list.js"></script>
+
+
+    <script src="../js/dayi-lib/dayi_update.js"></script>
+    <script>
+        fields = [
+            { title: "ID", name: "id", type: "text", width: 150 },
+            { title: "院系ID", name: "facultyId", type: "text", width: 150 },
+            { title: "专业名", name: "majorName", type: "text", width: 150 },
+            {
+                title: "操作", name: "id", type: "text", width: 150,
+                itemTemplate: function (value, item) {
+                    dayi_tmp_arr[value] = item;
+                    return `<a href='javascript:void(0)' onclick='dayi_update(${item["id"]})'>修改</a>`
+                        + `&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:void(0)' onclick='dayi_del(${item["id"]})'>删除</a>`;
+                }
+            }
+        ]
+        //jquery
+        //加载列表
+        $(document).ready(function() {
+            check_();
+            loadDayiList();
+            // 这里带斜杠哦
+            dayi_load_list(fields, "/major/list", "jsGrid1")  
+        })
+
+        function dayi_update(id) {
+            upup_(fields,id,"/major/update",dayi_tmp_arr)
+        }
+
+        function dayi_del(id){
+            deldel_(id,"/major/del",function (response){
+                alert("删除成功")
+            },function (response){
+                alert("删除失败")
+            })
+        }
+    </script>
+</body>
+
+</html>
