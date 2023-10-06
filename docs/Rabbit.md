@@ -1,5 +1,47 @@
 # 闸瓦实训
 
+> 我发现，这网页（cmd.dayi.ink）好卡啊。
+>
+> 目前进度：0.61（也没想到有这么多内容）
+
+请到这里继续看：
+
+Github:  https://github.com/magical-rabbit/java-spring/blob/main/docs/Rabbit.md
+
+老博客：https://type.dayiyi.top/index.php/archives/206/
+
+----
+
+## 代码下载（包括最新的文档）
+
+**都在这里：https://github.com/magical-rabbit/java-spring**
+
+![](https://cmd.dayi.ink/uploads/upload_09ef0bbe68de67795544fd8eddbed6a0.png)
+
+
+
+>打开缓慢：可以用Steam++来加速访问（选github）（https://steampp.net/ 下载：选蓝奏云 https://wwn.lanzouy.com/imM6D19nxt9a 密码1234 ）
+
+不是很想用gitee，限制特别多，如果你们需要，请跟我说
+
+代码：在这里👇，打开慢请用steam++试试。
+
+https://github.com/magical-rabbit/java-spring
+
+https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit/skd21/exam
+
+如何下载？
+
+![image-20231006125304164](https://lspro.icee.top/i/2023/10/06/651f92bcbec1d.webp)
+
+
+
+直链:https://github.com/magical-rabbit/java-spring/archive/refs/heads/main.zip
+
+---
+
+
+
 ## 1. 配置mvn
 
 创建仓库文件夹（不要带中文就好）
@@ -3657,17 +3699,91 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
     ![image-20231006200204093](https://lspro.icee.top/i/2023/10/06/651ff73e55d09.png)
 
+相关文件：
+
+![image-20231006202601893](https://lspro.icee.top/i/2023/10/06/651ffcdc22477.png)
+
 
 
 ## 11.7 专业管理
 
+### 11.7.1 后端
+
+1. controller
+
+   ![image-20231006205134308](https://lspro.icee.top/i/2023/10/06/652002de6fec6.png)
+
+2. mapper
+
+   ![image-20231006205153455](https://lspro.icee.top/i/2023/10/06/652002ed7e55c.png)
+
+3. mapper xml
+
+   ![image-20231006205207607](https://lspro.icee.top/i/2023/10/06/6520030060119.png)
+
+4. service impl
+
+   ![image-20231006205242579](https://lspro.icee.top/i/2023/10/06/652003244724b.png)
+
+5. service
+
+   ![image-20231006205301485](https://lspro.icee.top/i/2023/10/06/652003314bb8f.png)
+
+6. POSTMAN测试
+
+   ![image-20231006205316821](https://lspro.icee.top/i/2023/10/06/652003408acd2.png)
 
 
 
+
+
+### 11.7.2 前端
+
+![image-20231006205646644](https://lspro.icee.top/i/2023/10/06/65200410ea66c.png)
+
+
+
+![image-20231006205558937](https://lspro.icee.top/i/2023/10/06/652003e1c551a.png)
+
+
+
+![image-20231006205632306](https://lspro.icee.top/i/2023/10/06/65200404247f9.png)
+
+
+
+新增专业测试：人生是没有回头路的。
+
+![image-20231006210452341](https://lspro.icee.top/i/2023/10/06/652005f81b514.png)
+
+然后我们可以找到：
+
+![image-20231006210525062](https://lspro.icee.top/i/2023/10/06/652006177d1df.png)
+
+保存成功
+
+![image-20231006210617615](https://lsp.dayi.ink/i/2023/10/06/6520064b8946b.png)
+
+删除成功：
+
+![image-20231006210736394](https://lspro.icee.top/i/2023/10/06/6520069a72430.png)
+
+本章节修改的文件：
+
+![image-20231006210834092](https://lspro.icee.top/i/2023/10/06/652006d5331a3.png)
 
 
 
 ## 11.8  班级管理
+
+
+
+
+
+
+
+
+
+
 
 
 

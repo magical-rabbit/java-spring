@@ -1,6 +1,11 @@
 package net.dabbit.skd21.exam.controller;
 
+import net.dabbit.skd21.exam.entity.Faculty;
+import net.dabbit.skd21.exam.entity.JsGridData;
+import net.dabbit.skd21.exam.entity.Major;
 import net.dabbit.skd21.exam.service.ClassService;
+import net.dabbit.skd21.exam.service.FacultyService;
+import net.dabbit.skd21.exam.service.MajorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,5 +41,32 @@ public class MajorController {
         return res;
     }
 
+
+    @Autowired
+    MajorService majorService;
+
+    @RequestMapping("/list")
+    @ResponseBody
+    public String list(JsGridData jsdata) {
+        return majorService.list(jsdata);
+    }
+
+    @RequestMapping("/add")
+    @ResponseBody
+    public String add(Major major) {
+        return majorService.add(major);
+    }
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public String update(Major major) {
+        return majorService.update(major);
+    }
+
+    @RequestMapping("/del")
+    @ResponseBody
+    public String del(Integer id) {
+        return majorService.del(id);
+    }
 }
 
