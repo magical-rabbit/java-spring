@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dayi_UPDATE</title>
+</head>
+
+<body>
+
+
+    <!-- 核心，内容将会从这里加载 -->
+    <div id="dayi-update">
+
+    </div>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/demo.js"></script>
+
+    <!-- dayi_update脚本库 -->
+    <script src="../js/dayi-lib/dayi_update.js"></script>
+    <!-- 启动脚本 -->
+    <script>
+        //需要以下几个变量
+
+        // 当前节点的item信息
+        // 表单数据
+
+        // 加载函数还没写
+
+        
+        //不写异步了，同步加载，防止BUG
+        //实际上还是写了异步
+       
+        //这段代码不应该被加载
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log("[dayi-warning]你不应该看见我，看见了表示，炸了！PVP")
+                form_arr = [
+                { title: "ID", name: "id", type: "text", width: 150 },
+                { title: "用户名", name: "username", type: "text", width: 150 },
+                { title: "真是姓名", name: "realName", type: "text", width: 150 },
+                { title: "学号", name: "sno", type: "text", width: 150 }
+            ]
+            now_id = 2
+            update_url = "/questionTemplate/update"
+            dayi_update_init(form_arr,now_id,update_url);
+        });
+    </script>
+</body>
+
+</html>

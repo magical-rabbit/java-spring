@@ -1,22 +1,28 @@
+//存放当前列表数据的数组
+dayi_tmp_arr = {};
+
+
 function loadDayiList() {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', '../js/dayi-lib/list-template.html', true);
-    xhr.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            document.getElementById('dayi-list').innerHTML = this.responseText;
-        }
-    };
-    xhr.send();
+    // const xhr = new XMLHttpRequest();
+    // // xhr.open('GET', '../js/dayi-lib/list-template.html', true);
+    // xhr.onreadystatechange = function() {
+    //     if (this.readyState === 4 && this.status === 200) {
+    //         document.getElementById('dayi-list').innerHTML = this.responseText;
+    //     }
+    // };
+    // xhr.send();
 }
 
 
-function dayi_load_list2(){
-
+function dayi_load_list(fields=[{ title: "ID",name:"id", type: "text", width: 150 }],post_url="/user/list",object_="#jsGrid1",pageSize=3){
+    initializePageGrid(fields,post_url,object_,pageSize)
 }
 
 
-function initializePageGrid(elementSelector, configOverrides) {
-    var defaultConfig = {
+function initializePageGrid(fields=[{ title: "ID",name:"id", type: "text", width: 150 }],post_url="/user/list",object_="#jsGrid1",pageSize=3) {
+    const jsgrid = document.getElementById("jsGrid1")
+
+    $("#jsGrid1").jsGrid({
         width: "100%",
         height: "auto",
         sorting: true,
@@ -29,7 +35,7 @@ function initializePageGrid(elementSelector, configOverrides) {
                 filter["search"] = $("#search").val();
                 return $.ajax({
                     type: "post",
-                    url: "/user/list",
+                    url: post_url,
                     dataType: "json",
                     data: filter
                 });
@@ -42,13 +48,6 @@ function initializePageGrid(elementSelector, configOverrides) {
         pageNextText: "下一页",
         pageFirstText: "首页",
         pageLastText: "尾页",
-        fields: [
-            // ... 其他的字段配置不变 ...
-        ]
-    };
-
-    // 使用jQuery的extend函数来合并和覆盖默认配置
-    var finalConfig = $.extend(true, {}, defaultConfig, configOverrides);
-
-    initializeJsGrid(elementSelector, finalConfig);
+        fields: fields
+    })
 }
