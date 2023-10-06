@@ -1,6 +1,6 @@
 package net.dabbit.skd21.exam.entity;
 
-public class QuestionOptions {
+public class QuestionOption {
     private Integer id;
 
     private String questionCode;

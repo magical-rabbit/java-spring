@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | jsGrid</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <!-- jsGrid -->
@@ -15,85 +17,84 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini">
 
 
 
-<section class="content">
-    <form action="/test/upload" enctype="multipart/form-data" method="post">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">试题上传</h3>
+    <section class="content">
+        <form action="/test/upload" enctype="multipart/form-data" method="post">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">试题上传</h3>
 
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="qType">类型</label>
-                            <select id="qType" name="qType" class="form-control custom-select">
-                                <option value="">--请选择--</option>
-                                <option value="0">单选</option>
-                                <option value="1">多选</option>
-                            </select>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="qType">类型</label>
+                                <select id="qType" name="qType" class="form-control custom-select">
+                                    <option value="">--请选择--</option>
+                                    <option value="0">单选</option>
+                                    <option value="1">多选</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="subject">科目</label>
-                            <select id="subject" name="subject" class="form-control custom-select">
-                                <option value="">--请选择--</option>
-                                <option value="1">毛泽东思想概论</option>
-                                <option value="2">大学英语</option>
-                            </select>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="subject">科目</label>
+                                <select id="subject" name="subject" class="form-control custom-select">
+                                    <option value="">--请选择--</option>
+                                    <option value="1">毛泽东思想概论</option>
+                                    <option value="2">大学英语</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="inputName">选择文件</label>
-                            <input type="file" id="inputName" name="questonFile" class="form-control">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="inputName">选择文件</label>
+                                <input type="file" id="inputName" name="questonFile" class="form-control">
+                            </div>
                         </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
             </div>
-        </div>
-        <div class="row">
-            <div class="col-9">
-                <input type="submit" value="提交" class="btn btn-success float-right">
+            <div class="row">
+                <div class="col-9">
+                    <input type="submit" value="提交" class="btn btn-success float-right">
+                </div>
             </div>
-        </div>
-    </form>
-</section>
+        </form>
+    </section>
 
 
 
 
 
-<script src="../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jsGrid -->
-<script src="../plugins/jsgrid/demos/db.js"></script>
-<script src="../plugins/jsgrid/jsgrid.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- jsGrid -->
+    <script src="../plugins/jsgrid/demos/db.js"></script>
+    <script src="../plugins/jsgrid/jsgrid.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../dist/js/demo.js"></script>
 
+    
+    <script>
 
-<!--菜单列表管理:-->
-<script src="../js/menu-list.js"></script>
-
-<script>
-
-</script>
+    </script>
 </body>
+
 </html>
