@@ -2,7 +2,7 @@
 
 > 我发现，这网页（cmd.dayi.ink）好卡啊。
 >
-> 目前进度：0.61（也没想到有这么多内容）
+> 目前进度：0.63（也没想到有这么多内容，有点写不完了）
 
 请到这里继续看：
 
@@ -3775,15 +3775,46 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
 ## 11.8  班级管理
 
+### 11.8.1 后端
+
+- mapper xml
+- controller 
+- service
+- serviceImpl
+
+都差不多啦
+
+![image-20231006215146623](https://lspro.icee.top/i/2023/10/06/652010f5b3318.png)
+
+### 11.8.2 前端
+
+前段也是，复制两个html文件，稍微改一改就好。
+
+![image-20231006220537850](https://lspro.icee.top/i/2023/10/06/65201434c0558.png)
+
+![image-20231006220548669](https://lspro.icee.top/i/2023/10/06/6520143f2eede.png)
+
+![image-20231006220600257](https://lspro.icee.top/i/2023/10/06/6520144be381c.png)
 
 
 
 
 
+![image-20231006220702200](https://lspro.icee.top/i/2023/10/06/6520148a901b6.png)
 
 
 
+![image-20231006220719581](https://lspro.icee.top/i/2023/10/06/65201499b9e81.png)
 
+
+
+![image-20231006220741609](https://lspro.icee.top/i/2023/10/06/652014af9ea8f.png)
+
+![image-20231006220750177](https://lspro.icee.top/i/2023/10/06/652014b86edb0.png)
+
+### 11.8.3 本章节修改的文件
+
+![image-20231006220848434](https://lspro.icee.top/i/2023/10/06/652014f3ab3a8.png)
 
 
 
