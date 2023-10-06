@@ -1,5 +1,8 @@
 package net.dabbit.skd21.exam.controller;
 
+import net.dabbit.skd21.exam.entity.JsGridData;
+
+import net.dabbit.skd21.exam.autogen.entity.Class;
 import net.dabbit.skd21.exam.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +35,32 @@ public class ClassController {
     public String getAllFaculty(){
         String res = classService.getAllFaculty();
         return res;
+    }
+
+
+
+    @RequestMapping("/list")
+    @ResponseBody
+    public String list(JsGridData jsdata) {
+        return classService.list(jsdata);
+    }
+
+    @RequestMapping("/add")
+    @ResponseBody
+    public String add(Class class_) {
+        return classService.add(class_);
+    }
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public String update(Class class_) {
+        return classService.update(class_);
+    }
+
+    @RequestMapping("/del")
+    @ResponseBody
+    public String del(Integer id) {
+        return classService.del(id);
     }
 
 }

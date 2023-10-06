@@ -1,7 +1,6 @@
 package net.dabbit.skd21.exam.mapper;
 
 import net.dabbit.skd21.exam.entity.Classes;
-import net.dabbit.skd21.exam.entity.Faculty;
 import net.dabbit.skd21.exam.entity.JsGridData;
 import net.dabbit.skd21.exam.entity.Major;
 import org.apache.ibatis.annotations.Mapper;

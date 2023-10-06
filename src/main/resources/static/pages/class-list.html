@@ -56,7 +56,8 @@
         fields = [
             { title: "ID", name: "id", type: "text", width: 150 },
             { title: "院系ID", name: "facultyId", type: "text", width: 150 },
-            { title: "专业名", name: "majorName", type: "text", width: 150 },
+            { title: "专业ID", name: "majorId", type: "text", width: 150 },
+            { title: "班级名", name: "className", type: "text", width: 150 },
             {
                 title: "操作", name: "id", type: "text", width: 150,
                 itemTemplate: function (value, item) {
@@ -72,15 +73,15 @@
             check_();
             loadDayiList();
             // 这里带斜杠哦
-            dayi_load_list(fields, "/major/list", "jsGrid1")  
+            dayi_load_list(fields, "/class/list", "jsGrid1")  
         })
 
         function dayi_update(id) {
-            upup_(fields,id,"/major/update",dayi_tmp_arr)
+            upup_(fields,id,"/class/update",dayi_tmp_arr)
         }
 
         function dayi_del(id){
-            deldel_(id,"/major/del",function (response){
+            deldel_(id,"/class/del",function (response){
                 alert("删除成功")
             },function (response){
                 alert("删除失败")

@@ -36,5 +36,86 @@
     <select id="getAllFaculty" resultMap="ovo_BaseResultMap3">
         SELECT * FROM `faculty`
     </select>
+
+
+
+
+
+    <resultMap id="BaseResultMap" type="net.dabbit.skd21.exam.autogen.entity.Class">
+        <id column="id" property="id"></id>
+        <id column="faculty_id" property="facultyId"></id>
+        <id column="major_id" property="majorId"></id>
+        <id column="class_name" property="className"></id>
+    </resultMap>
+
+    <!-- ADD -->
+    <insert id="add" parameterType="net.dabbit.skd21.exam.autogen.entity.Class">
+        insert into class
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+        id,
+            </if>
+            <if test="facultyId != null">
+        faculty_id,
+            </if>
+            <if test="majorId != null">
+        major_id,
+            </if>
+            <if test="className != null">
+        class_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null"> #{id,jdbcType=INTEGER},
+            </if>
+            <if test="facultyId != null"> #{facultyId,jdbcType=INTEGER},
+            </if>
+            <if test="majorId != null"> #{majorId,jdbcType=INTEGER},
+            </if>
+            <if test="className != null"> #{className,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+
+    <!--  修改  -->
+    <update id="update" parameterType="net.dabbit.skd21.exam.autogen.entity.Class">
+        update class
+        <set>
+            <if test="facultyId != null">
+        faculty_id = #{facultyId,jdbcType=INTEGER},
+            </if>
+            <if test="majorId != null">
+        major_id = #{majorId,jdbcType=INTEGER},
+            </if>
+            <if test="className != null">
+        class_name = #{className,jdbcType=VARCHAR},
+            </if>
+        </set>
+    where id = #{id,jdbcType=INTEGER}
+    </update>
+
+
+    <!--    获得列表-->
+    <select id="list" parameterType="net.dabbit.skd21.exam.entity.JsGridData" resultMap="BaseResultMap">
+        SELECT * FROM class
+        limit #{offset},#{pageSize}
+    </select>
+
+    <!-- 计数 -->
+    <select id="count" parameterType="net.dabbit.skd21.exam.entity.JsGridData" resultType="java.lang.Long">
+        select count(*) from class
+    </select>
+
+
+    <!--  删除  -->
+    <delete id="del" parameterType="java.lang.Integer">
+        delete from class
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+
+
+
 </mapper>
 

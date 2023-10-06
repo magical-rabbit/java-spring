@@ -61,8 +61,14 @@
             </div>
 
             <div class="form-group">
-                <label for="major_name">专业名</label>
-                <input type="text" id="major_name" class="form-control">
+                <label for="major_id">专业ID</label>
+                <input type="text" id="major_id" class="form-control">
+            </div>
+
+
+            <div class="form-group">
+                <label for="class_name">班级名</label>
+                <input type="text" id="class_name" class="form-control">
             </div>
 
             <!-- 按钮 -->
@@ -93,7 +99,7 @@
     <script>
         var add_template_func = function () {
             var formData = collectFormData('.card-body');
-            sendDataToBackend("/major/add", formData, function (response) { alert("新增成功"); }, function (response) { alert("新增失败"); });
+            sendDataToBackend("/class/add", formData, function (response) { alert("新增成功"); }, function (response) { alert("新增失败"); });
         }
     </script>
 

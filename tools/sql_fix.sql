@@ -19,3 +19,10 @@ INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `p
 INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_level`, `parent_id`, `sort`) VALUES ('major', '专业', '1', '0', '1');
 INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('major-add', '专业-添加', 'major-add.html', '2', '48', '1');
 INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('major-list', '专业列表', 'major-list.html', '2', '48', '2');
+
+
+-- 班级
+
+INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_level`, `parent_id`, `sort`) VALUES ('class', '班级管理', '1', '0', '1');
+INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('class-add', '班级新增', 'class-add.html', '2', '51', '1');
+INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('class-list', '班级列表', 'class-list.html', '2', '51', '2');
