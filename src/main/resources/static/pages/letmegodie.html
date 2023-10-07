@@ -81,7 +81,7 @@
     <button onclick="displayNextQuestion()">Next Question</button>
 
 
-    <div id="countdownTimer"></div>
+    <div id="countdownTimer">正在下载题库...为保证您的答题安全，重新抽题请输入F5</div>
 
 
     <h2>题目显示</h2>
@@ -90,6 +90,8 @@
     <button id="submitAnswers" onclick="evaluateScore()" style="display:none;">提交答案！</button>
 
     <div id="scoreResult"></div>
+
+
 
 
     <script src="../plugins/jquery/jquery.min.js"></script>
@@ -104,6 +106,8 @@
     <script src="../js/dayi-lib/check_.js"></script>
 
     <script>
+    
+
         let questionsDataCache = [];
         let currentIndex = 0;
         let userAnswers = {};
@@ -127,7 +131,7 @@
                 }
             }
 
-            startCountdown();
+
         }
 
         async function fetchQuestionDetails(questionId) {
@@ -186,11 +190,22 @@
 
         // 设置倒计时时间（以毫秒为单位）
         const countdownTime = 20 * 60 * 1000; // 20分钟
-        let countdownInterval;
+        
+        
+        let countdownInterval ;
 
         function startCountdown() {
+
+
             let countdownElement = document.getElementById('countdownTimer');
-            let endTime = Date.now() + countdownTime;
+            // debugger;
+            if (!countdownElement) {
+                console.error('Element with id countdownTimer not found');
+                return;
+            }
+
+
+            endTime = Date.now() + countdownTime;
 
             countdownInterval = setInterval(() => {
                 const currentTime = Date.now();
@@ -209,9 +224,11 @@
         }
 
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             check_();
-            fetchQuestions();
+            fetchQuestions()
+            startCountdown();
+
         });
 
     </script>
