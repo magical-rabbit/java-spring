@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录并显示分数</title>
+</head>
+
+<body>
+
+<div style="margin: 50px;">
+    <h2>登录</h2>
+    <form id="loginForm">
+        <label for="username">用户名:</label>
+        <input type="text" id="username" required>
+        <br><br>
+        <label for="password">密码:</label>
+        <input type="password" id="password" required>
+        <br><br>
+        <input type="submit" value="登录">
+    </form>
+    <br>
+    <div id="scoreInfo" style="display:none;">
+        <h2>分数信息</h2>
+        <p id="scoreResult"></p>
+    </div>
+</div>
+
+<script src="../plugins/jquery/jquery.min.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../plugins/jsgrid/jsgrid.min.js"></script>
+<script src="../dist/js/adminlte.min.js"></script>
+<script src="../dist/js/demo.js"></script>
+
+<script src="../js/dayi-lib/check_.js"></script>
+<script src="../js/dayi-lib/load_list.js"></script>
+
+
+<script src="../js/dayi-lib/dayi_update.js"></script>
+<script>
+    $(document).ready(function() {
+        check_();
+    })
+
+
+    $("#loginForm").submit(function(event) {
+        event.preventDefault();
+        var username = $("#username").val();
+        var password = $("#password").val();
+        
+        $.post("/score/givemyscore", { "username": username, "password": password }, function(data) {
+            console.log(data);
+            if (data && data.score) {
+                $("#scoreResult").text("你的分数是: " + data.score);
+                $("#scoreInfo").show();
+            } else {
+                if(data){
+                    alert(data.msg)
+                    return;
+                }
+                alert("登录失败或没有获取到分数信息。");
+            }
+        }).fail(function() {
+            alert("请求失败，请检查网络连接或服务器状态。");
+        });
+    });
+</script>
+
+</body>
+</html>
