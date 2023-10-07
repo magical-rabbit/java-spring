@@ -33,6 +33,12 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
+    @RequestMapping("/getbyid")
+    @ResponseBody
+    public String get_question_by_id(Integer id){
+        return questionService.getQuestionById(id);
+    }
+
     @RequestMapping("/upload")
     @ResponseBody
     public String upload(MultipartFile questonFile) throws Exception{

@@ -13,4 +13,6 @@ public interface QuestionService {
     int addQuestionOptionsList(List<QuestionOption> list);
     String getQuestionList(JsGridData jsGridData);
     String getOptionsForQuestion(Question question);
+
+    String getQuestionById(Integer id);
 }

@@ -13,4 +13,5 @@ public interface QuestionMapper {
     int addQuestionOptionsList(List<QuestionOption> list);
     List<Question> getQuestionList(JsGridData jsGridData);
     List<QuestionOption> getOptionsForQuestion(Question question);
+    Question getQuestionById(Integer id);
 }

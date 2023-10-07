@@ -90,6 +90,11 @@
         WHERE question_code = #{questionCode}
     </select>
 
+    <select id="getQuestionById" parameterType="java.lang.Integer" resultMap="BaseResultMap_Question">
+        SELECT * FROM question_bank
+        where id=#{id}
+    </select>
+
 
 
 

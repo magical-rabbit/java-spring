@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>OVO题目练习</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #333;
+        }
+
+        #questionProgress {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        #questionsContainer {
+            margin-bottom: 20px;
+        }
+
+        #scoreResult {
+            font-weight: bold;
+            margin-top: 30px;
+            color: #4CAF50;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .question {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        #countdownTimer {
+            text-align: center;
+            font-size: 24px;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body onload="fetchQuestions()">
+    <h1>OVO题目练习</h1>
+
+    <h2>题目抽取</h2>
+    <div id="questionProgress">Current Question: 0/0</div>
+    <button onclick="displayNextQuestion()">Next Question</button>
+
+
+    <div id="countdownTimer"></div>
+
+
+    <h2>题目显示</h2>
+    <div id="questionsContainer"></div>
+
+    <button id="submitAnswers" onclick="evaluateScore()" style="display:none;">提交答案！</button>
+
+    <div id="scoreResult"></div>
+
+    <script>
+        let questionsDataCache = [];
+        let currentIndex = 0;
+        let userAnswers = {};
+
+        async function fetchQuestions() {
+            if (!questionsDataCache.length) {
+                try {
+                    const response = await fetch('/exam/fetch_list');
+                    const data = await response.json();
+
+                    for (const difficulty in data) {
+                        for (const questionId of data[difficulty]) {
+                            const questionData = await fetchQuestionDetails(questionId);
+                            questionsDataCache.push(questionData);
+                        }
+                    }
+                    document.getElementById('questionProgress').textContent = `Current Question: ${currentIndex + 1}/${questionsDataCache.length}`;
+                    displayNextQuestion();
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
+            startCountdown();
+        }
+
+        async function fetchQuestionDetails(questionId) {
+            try {
+                const response = await fetch(`/test/getbyid?id=${questionId}`);
+                return response.json();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        function displayNextQuestion() {
+            if (currentIndex < questionsDataCache.length) {
+                displayQuestion(questionsDataCache[currentIndex]);
+                currentIndex++;
+                document.getElementById('questionProgress').textContent = `当前的问题，加油加油，你可以的: ${currentIndex}/${questionsDataCache.length}`;
+            } else {
+                document.getElementById('questionsContainer').innerHTML = '恭喜你练习完成啦！';
+                document.getElementById('submitAnswers').style.display = 'block';
+            }
+        }
+
+        function displayQuestion(questionData) {
+            const questionElement = document.createElement('div');
+            console.log(questionData);
+            questionElement.innerHTML = `<p>${questionData.question.questionName || '[错误]没有找到标题'}</p>`;
+            questionData.options.forEach(option => {
+                const optionElement = document.createElement('input');
+                optionElement.type = 'radio';
+                optionElement.name = `answer_${questionData.id}`;
+                optionElement.value = option.optionsCode;
+                optionElement.addEventListener('change', () => {
+                    userAnswers[questionData.id] = option.optionsCode;
+                });
+                questionElement.appendChild(optionElement);
+                questionElement.innerHTML += option.optionsText + '<br>';
+            });
+
+            document.getElementById('questionsContainer').innerHTML = '';
+            document.getElementById('questionsContainer').appendChild(questionElement);
+        }
+
+        function evaluateScore() {
+            // For simplicity, assume correct answer code is 'A' for all questions.
+            // You should adapt this based on your actual data or scoring mechanism.
+            let correctAnswersCount = 0;
+            for (let questionId in userAnswers) {
+                if (userAnswers[questionId] === 'A') {
+                    correctAnswersCount++;
+                }
+            }
+            const score = correctAnswersCount / questionsDataCache.length * 100;
+            document.getElementById('scoreResult').textContent = `你的正确率: ${score}%`;
+        }
+
+
+        // 设置倒计时时间（以毫秒为单位）
+        const countdownTime = 20 * 60 * 1000; // 20分钟
+        let countdownInterval;
+
+        function startCountdown() {
+            let countdownElement = document.getElementById('countdownTimer');
+            let endTime = Date.now() + countdownTime;
+
+            countdownInterval = setInterval(() => {
+                const currentTime = Date.now();
+                const remainingTime = endTime - currentTime;
+
+                if (remainingTime <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.textContent = '时间已用尽，自动提交中...';
+                    evaluateScore();
+                } else {
+                    const minutes = Math.floor(remainingTime / 60000);
+                    const seconds = Math.floor((remainingTime % 60000) / 1000);
+                    countdownElement.textContent = `倒计时: ${minutes} 分钟 ${seconds} 秒`;
+                }
+            }, 1000);
+        }
+
+
+    </script>
+</body>
+
+</html>

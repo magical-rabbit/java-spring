@@ -3998,7 +3998,219 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 
 
+### 11.11.1 复制类
 
+但是有个包导入失败
+
+pom.xml
+
+
+```xml
+<dependency>
+    <groupId>com.mchange</groupId>
+    <artifactId>c3p0</artifactId>
+    <version>0.9.5.5</version> <!-- 或者您需要的版本号 -->
+</dependency>
+```
+
+
+### 11.11.1 复制类
+
+但是有个包导入失败
+
+![](https://cmd.dayi.ink/uploads/upload_ccbfee999e15cfea15cbdd80a1195dd3.png)
+
+
+pom.xml
+
+
+```xml
+<dependency>
+    <groupId>com.mchange</groupId>
+    <artifactId>c3p0</artifactId>
+    <version>0.9.5.5</version> <!-- 或者您需要的版本号 -->
+</dependency>
+```
+
+直接把类重新生成了一下
+
+![](https://cmd.dayi.ink/uploads/upload_96df4df6fab6bbf29ed9acf40a52be5c.png)
+
+可以正常抽题了。
+
+![](https://cmd.dayi.ink/uploads/upload_2556e10f17f9a6b3789cc946cf0d703d.png)
+
+
+### 11.11.2 把包重写了一下，然后直接塞controller了。
+
+
+![](https://cmd.dayi.ink/uploads/upload_aa62fbb20ddbc812f79f790196a82b59.png)
+
+![](https://cmd.dayi.ink/uploads/upload_72b837ca2391523540f52978011cc44e.png)
+
+
+这里是controller
+
+简陋，但是实现了功能。具体的规范性如果还有时间再来规范。
+
+![](https://cmd.dayi.ink/uploads/upload_8a92acc7f98a5779e8e0f84525393789.png)
+
+
+```json
+{
+    "EASY": [
+        37,
+        34,
+        51,
+        44,
+        24,
+        20,
+        41,
+        22,
+        29,
+        38,
+        35,
+        40,
+        27,
+        30
+    ],
+    "MEDIUM": [
+        62,
+        59,
+        89,
+        68,
+        32,
+        51,
+        95,
+        33
+    ],
+    "HARD": [
+        27,
+        114
+    ],
+    "VERY_HARD": [
+        109,
+        120
+    ]
+}
+
+```
+
+
+
+### 11.11.3 然后是根据题目编号获得题目
+
+随便写写，就这个样子
+
+![](https://cmd.dayi.ink/uploads/upload_60530b0ba59d3aae77bbbcd68ab5226f.png)
+
+
+返回的json
+
+这里答案肯定是应该要隐藏的，但是实际上，某些平台的好像也就这样，直接能拿答案）
+
+主要是内容有点多，先实现功能，然后是能跑。
+
+
+```json
+{
+    {
+        "answer": "D ",
+        "createTime": 1639065652000,
+        "difficulty": 0,
+        "id": 19,
+        "questionCode": "0-f1dad818-5c94-4a27-b071-f1582652e7df",
+        "questionName": "资本主义经济危机的根源在于（ ）。",
+        "subjectId": 1,
+        "type": 0
+    }: [
+        {
+            "id": 73,
+            "optionsCode": "A",
+            "optionsText": " 生产和消费的矛盾  ",
+            "questionCode": "0-f1dad818-5c94-4a27-b071-f1582652e7df"
+        },
+        {
+            "id": 74,
+            "optionsCode": "B",
+            "optionsText": " 劳动人民的消费不足 ",
+            "questionCode": "0-f1dad818-5c94-4a27-b071-f1582652e7df"
+        },
+        {
+            "id": 75,
+            "optionsCode": "C",
+            "optionsText": " 消费需求和投资需求的不足 ",
+            "questionCode": "0-f1dad818-5c94-4a27-b071-f1582652e7df"
+        },
+        {
+            "id": 76,
+            "optionsCode": "D",
+            "optionsText": " 资本主义基本矛盾 ",
+            "questionCode": "0-f1dad818-5c94-4a27-b071-f1582652e7df"
+        }
+    ]
+}
+```
+
+
+
+
+### 11.11.4 前端
+
+生成啦一个，还可以
+
+这样可以直接做题并且自动打分。
+
+（就当练习啦）
+
+![](https://cmd.dayi.ink/uploads/upload_f12079f020bdd74c9e750b60b4dc11cd.png)
+
+
+![](https://cmd.dayi.ink/uploads/upload_afbaa9e2ae0602de63e0e0bdc6a65d80.png)
+
+然后再美化下CSS
+
+
+
+
+![](https://cmd.dayi.ink/uploads/upload_b0e4f846d67c39bdb0a87897a8c47a8c.png)
+
+
+效果图2：
+
+![](https://cmd.dayi.ink/uploads/upload_85540e6b3ff6a9cb04ad55dfb6604b05.png)
+
+
+### 11.11.5 前端倒计时，时间到了自动提交代码
+
+![](https://cmd.dayi.ink/uploads/upload_132c3eebb2ac9a1ebb8d5df16b8f84ed.png)
+
+
+倒计时：
+
+![](https://cmd.dayi.ink/uploads/upload_e2df2d933c412e80df122dbea17efef6.png)
+
+
+
+
+## 11.12 在线考试
+
+
+### 11.12.1 在线考试
+
+
+我觉得已经差不多实现了。剩下的就是完善功能了。
+
+考虑到时间关系，先实现功能，然后再慢慢完善，光这个markdown文件也4204行了。
+
+### 11.12.2 成绩查询
+
+
+
+
+
+
+----
 
 
 ## **最新代码**：

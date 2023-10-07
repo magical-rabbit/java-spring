@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
@@ -57,4 +58,17 @@ public class QuestionServiceImpl implements QuestionService {
         List<QuestionOption> ls = questionMapper.getOptionsForQuestion(question);
         return JSONObject.toJSONString(ls);
     }
+
+    @Override
+    public String getQuestionById(Integer id) {
+        Question qs = questionMapper.getQuestionById(id);
+        List<QuestionOption> ls = questionMapper.getOptionsForQuestion(qs);
+
+        Map<String, Object> res = new HashMap<>();
+        res.put("question", qs);
+        res.put("options", ls);
+        return JSONObject.toJSONString(res);
+    }
+
+
 }
