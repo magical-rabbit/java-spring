@@ -8,7 +8,7 @@ import net.dabbit.skd21.exam.entity.JsGridData;
 
 
 @Service
-public class RoleService {
+public interface RoleService {
     String add(Role role);
     String list(JsGridData jsdata);
     String update(Role role);

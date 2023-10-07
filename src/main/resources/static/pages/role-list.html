@@ -55,10 +55,8 @@
     <script>
         fields = [
             { title: "ID", name: "id", type: "text", width: 150 },
-            { title: "用户ID", name: "userId", type: "text", width: 150 },
-            { title: "科目ID", name: "subjectId", type: "text", width: 150 },
-            { title: "分数", name: "score", type: "text", width: 150 },
-            { title: "答题时间UNIX", name: "answer", type: "text", width: 150 },
+            { title: "角色代码", name: "roleCode", type: "text", width: 150 },
+            { title: "角色名字", name: "roleName", type: "text", width: 150 },
             {
                 title: "操作", name: "id", type: "text", width: 150,
                 itemTemplate: function (value, item) {
@@ -68,7 +66,7 @@
                 }
             }
         ]
-        url_fst = "score"
+        url_fst = "role"
 
         $(document).ready(function() {
             check_();

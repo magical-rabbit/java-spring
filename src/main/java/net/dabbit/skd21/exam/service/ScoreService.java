@@ -2,7 +2,7 @@ package net.dabbit.skd21.exam.service;
 
 import net.dabbit.skd21.exam.autogen.entity.Score;
 import net.dabbit.skd21.exam.entity.JsGridData;
-import net.dabbit.skd21.exam.entity.QuestionTemplate;
+
 
 import org.springframework.stereotype.Service;
 

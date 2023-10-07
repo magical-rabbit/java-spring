@@ -2892,6 +2892,42 @@ OK 下一部分
 ---
 **目前没做出来， 我有点理解不了他的内容**
 
+----
+
+这里更新一下，ROLE一样的实现：
+
+![](https://cmd.dayi.ink/uploads/upload_178aec14f88f5b964ed75d7b0a7329d6.png)
+
+
+
+
+![](https://cmd.dayi.ink/uploads/upload_c171a4fcf266fe9074a6d27ff56965c0.png)
+
+
+
+![](https://cmd.dayi.ink/uploads/upload_72af09bdba904a0ddc890b0790e395d4.png)
+
+
+
+然后是前端
+
+![](https://cmd.dayi.ink/uploads/upload_73b879d76494391289ea13c959830076.png)
+
+![](https://cmd.dayi.ink/uploads/upload_904593e31a5378d1a5dceb317feecc47.png)
+
+看样子没问题啦
+
+
+![](https://cmd.dayi.ink/uploads/upload_6b497b1685baff05baeb1cbe72e88f54.png)
+
+
+
+角色树
+
+![](https://cmd.dayi.ink/uploads/upload_d2edd064ebac45d1088a1d0fda0abfe6.png)
+
+
+
 
 
 -----
@@ -4457,6 +4493,88 @@ controller:
 
 ok，这样子就差不多啦。（超级超级累，一个人肝出来真的要命）
 
+
+
+
+## 菜单数据库
+
+
+
+![](https://cmd.dayi.ink/uploads/upload_afbef33b20c42bdfd83de735e11c8adf.png)
+
+
+
+```sql
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for menu
+-- ----------------------------
+DROP TABLE IF EXISTS `menu`;
+CREATE TABLE `menu`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `menu_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `menu_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `menu_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `menu_level` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `parent_id` int NULL DEFAULT NULL,
+  `sort` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of menu
+-- ----------------------------
+INSERT INTO `menu` VALUES (25, 'menu-1-template', '一级菜单', '', '1', 0, 1);
+INSERT INTO `menu` VALUES (27, 'role', '角色管理', '', '1', 0, 3);
+INSERT INTO `menu` VALUES (28, 'user', '用户管理', '', '1', 0, 4);
+INSERT INTO `menu` VALUES (29, 'project-add', '二级菜单-新增/修改模板', 'project-add.html', '2', 25, 1);
+INSERT INTO `menu` VALUES (30, 'project-list', '二级菜单-数据列表模板', 'project-list.html', '2', 25, 2);
+INSERT INTO `menu` VALUES (31, 'role-tree', '角色树', 'role-tree.html', '2', 25, 3);
+INSERT INTO `menu` VALUES (32, 'menu-add', '新增菜单', 'menu-add.html', '2', 26, 1);
+INSERT INTO `menu` VALUES (33, 'menu-list', '菜单列表', 'menu-list.html', '2', 26, 2);
+INSERT INTO `menu` VALUES (34, 'role-add', '新增角色', 'role-add.html', '2', 27, 1);
+INSERT INTO `menu` VALUES (35, 'role-list', '角色列表', 'role-list.html', '2', 27, 2);
+INSERT INTO `menu` VALUES (36, 'user-add', '用户管理', 'user-add.html', '2', 28, 1);
+INSERT INTO `menu` VALUES (37, 'questions', '题库管理', '', '1', 0, 5);
+INSERT INTO `menu` VALUES (38, 'file-upload', '试题上传', 'file-upload.html', '2', 37, 1);
+INSERT INTO `menu` VALUES (40, 'template', '模板管理', '', '1', 0, 1);
+INSERT INTO `menu` VALUES (41, 'template-list', '模板列表', 'template-list.html', '2', 40, 1);
+INSERT INTO `menu` VALUES (42, 'template-add', '模板新增', 'template.html', '2', 40, 2);
+INSERT INTO `menu` VALUES (43, 'exam', '试题管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (44, 'exam-uploader', '试题上传', 'test-upload.html', '2', 43, 1);
+INSERT INTO `menu` VALUES (45, 'faculty', '院系管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (46, 'faculty-add', '院系添加', 'faculty-add.html', '2', 45, 1);
+INSERT INTO `menu` VALUES (47, 'faculty-list', '院系列表', 'faculty-list.html', '2', 45, 2);
+INSERT INTO `menu` VALUES (48, 'major', '专业', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (49, 'major-add', '专业-添加', 'major-add.html', '2', 48, 1);
+INSERT INTO `menu` VALUES (50, 'major-list', '专业列表', 'major-list.html', '2', 48, 2);
+INSERT INTO `menu` VALUES (51, 'class', '班级管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (52, 'class-add', '班级新增', 'class-add.html', '2', 51, 1);
+INSERT INTO `menu` VALUES (53, 'class-list', '班级列表', 'class-list.html', '2', 51, 2);
+INSERT INTO `menu` VALUES (54, 'subject', '课程管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (55, 'subject-add', '课程添加', 'subject-add.html', '2', 54, 1);
+INSERT INTO `menu` VALUES (56, 'subject-list', '课程列表', 'subject-list.html', '2', 54, 2);
+INSERT INTO `menu` VALUES (57, 'major-semester', '专业学年管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (58, 'major-semester-add', '专业学年增加', 'major-semester-add.html', '2', 57, 1);
+INSERT INTO `menu` VALUES (59, 'major-semester-list', '专业学年列表', 'major-semester-list.html', '2', 57, 2);
+INSERT INTO `menu` VALUES (60, 'for-exam', '考试', 'letmegodie.html', '1', 0, 1);
+INSERT INTO `menu` VALUES (61, 'show-my-score', '查询分数', 'show-my-score.html', '1', 0, 1);
+INSERT INTO `menu` VALUES (62, 'score', '分数管理', NULL, '1', 0, 1);
+INSERT INTO `menu` VALUES (63, 'score-add', '新增分数（确定吗）', 'score-add.html', '2', 62, 1);
+INSERT INTO `menu` VALUES (64, 'score-list', '分数列表', 'score-list.html', '2', 62, 1);
+
+SET FOREIGN_KEY_CHECKS = 1;
+```
+
+
+
+## 项目结构
+
+还是不少内容的）
+![](https://cmd.dayi.ink/uploads/upload_41590fe07351b45107d970d5fe917700.png)
+![](https://cmd.dayi.ink/uploads/upload_df6adab1720121ed3ed66dcaff7997a8.png)
 
 
 
