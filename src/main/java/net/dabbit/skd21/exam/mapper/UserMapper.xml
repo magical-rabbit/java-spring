@@ -21,7 +21,9 @@
 <!--    <resultMap id="" type=""-->
 
     <select id="login" parameterType="net.dabbit.skd21.exam.entity.User" resultMap="BaseResultMap">
-        SELECT * FROM user WHERE username = #{username} AND password = #{password}
+        SELECT * FROM user
+        WHERE username = #{username} AND password = #{password}
+        Limit 1
     </select>
 
 

@@ -39,3 +39,12 @@ INSERT INTO `ovo`.`major_semester` (`major_id`, `school_year`, `semester`) VALUE
 INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_level`, `parent_id`, `sort`) VALUES ('major-semester', '专业学年管理', '1', '0', '1');
 INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('major-semester-add', '专业学年增加', 'major-semester-add.html', '2', '57', '1');
 INSERT INTO `ovo`.`menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('major-semester-list', '专业学年列表', 'major-semester-list.html', '2', '57', '2');
+
+
+---
+
+INSERT INTO `ovo`.`menu`(`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('for-exam', '考试', 'letmegodie.html', '1', 0, 1)
+
+
+
+INSERT INTO `ovo`.`menu`(`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('show-my-score', '显示分数', 'show-my-score.html', '1', 0, 1)
