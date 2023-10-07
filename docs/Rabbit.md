@@ -2,7 +2,10 @@
 
 > 我发现，这网页（cmd.dayi.ink）好卡啊。
 >
-> 目前进度：0.6（也没想到有这么多内容）
+> 目前进度：0.7（也没想到有这么多内容）
+
+
+> 我知道你想要什么：这里 <https://ghproxy.com/https://github.com/magical-rabbit/java-spring/archive/refs/heads/main.zip>
 
 请到这里继续看：
 
@@ -4205,8 +4208,174 @@ pom.xml
 
 ### 11.12.2 成绩查询
 
+> 根据院系、专业、学期、科目、当前登录的用户id，查询当前登录用户的指定科目的成绩。
 
 
+
+![](https://cmd.dayi.ink/uploads/upload_80875dca80201aede4cd7e70137b644f.png)
+
+### 11.12.2 成绩查询
+
+
+### 11.12.2 后端
+
+> 根据院系、专业、学期、科目、当前登录的用户id，查询当前登录用户的指定科目的成绩。
+
+1. 实现逻辑：
+
+- 从后端获得当前登录的用户。
+- 很遗憾，我们的登录功能是假的。
+- 所以要写一个登录功能，并且存cookie
+
+- 好像时间有点来不及了，所以，我们将错就错，直接登录，然后返回成绩。
+
+- 这样就简单多了。
+
+2. 开始实现。
+
+- 成绩是有一个实体，叫score。
+
+- 先写mapper
+
+3. mapper 和 xml
+
+这里直接用他的库，所以，我们直接修改一下，然后直接写servcie就可以。
+
+4. service
+
+- 我们需要一个能够实现按用户id查询成绩就可以了。
+
+- 根据实体，传入的参数有，科目名，用户id。
+
+![](https://cmd.dayi.ink/uploads/upload_cc37ff1bd31fe505193d50704964c24c.png)
+
+
+
+5. 开始实现
+
+- mapper xml
+
+![](https://cmd.dayi.ink/uploads/upload_e129ac589d75ebd39b073b6423361bcd.png)
+
+- mapper
+
+![](https://cmd.dayi.ink/uploads/upload_0efff83b681976273c71b9ffe70e6a64.png)
+
+
+- service
+
+因为分数这种东西，肯定是只能增加，不能修改！
+
+所以，只写了查询和新增，从根本上杜绝修改分数（才不是懒）
+
+![](https://cmd.dayi.ink/uploads/upload_ff3a4b94dbcfba59cdd9cd088449c8b8.png)
+
+
+- controller
+
+要实现：用户登录，验证身份成功后，给他分数！
+
+大概就是这样子，别怪咱写的太少，呜呜呜，实在是写不完了。
+
+
+稍微改改，把他全部的都返回bia
+
+![](https://cmd.dayi.ink/uploads/upload_bbed2b0a8b3ba58001483a131a09b732.png)
+
+
+![](https://cmd.dayi.ink/uploads/upload_41affba964b394abdec720ec205be7d9.png)
+
+感觉应该差不多了。
+
+试一试bia
+
+
+没有用户名密码：
+![](https://cmd.dayi.ink/uploads/upload_3d881a8c1dcbc408345e4fd50a51ace9.png)
+
+
+好的，获得500
+
+![](https://cmd.dayi.ink/uploads/upload_2d39a0cdf8b1c09b76d7377d820f2415.png)
+
+
+好好好
+
+![](https://cmd.dayi.ink/uploads/upload_8e04db366d96d50e4f3add9c759a8005.png)
+
+![](https://cmd.dayi.ink/uploads/upload_5be8318e0b2e649cbef6f02cba052795.png)
+
+拿错变量了。
+![](https://cmd.dayi.ink/uploads/upload_2f09f3374f4b2a18e972b708256815f6.png)
+
+
+
+---
+
+
+场外话：
+
+这是题目练习结束自动提交PVP
+
+![](https://cmd.dayi.ink/uploads/upload_bee2f0348305df16f809e376d4e3dd31.png)
+
+---
+
+
+看样子是可以啦：
+
+![](https://cmd.dayi.ink/uploads/upload_8e485f056bb956a1c9fccc3b8df407a0.png)
+
+
+
+
+### 11.12.3 前端
+
+1. 生成一个前端
+
+
+![](https://cmd.dayi.ink/uploads/upload_0d925740e5b9bb1c760f9c02b122bc1f.png)
+
+
+2. 加数据库
+
+![](https://cmd.dayi.ink/uploads/upload_3041ab74ab406f90a5f50cef03b17dfb.png)
+
+
+3. 试一试
+
+
+![](https://cmd.dayi.ink/uploads/upload_f552ca344691b37a2fb21683955498fd.png)
+
+
+4. 出错啦
+
+![](https://cmd.dayi.ink/uploads/upload_815077f95ebdd06714a7161028cac7fe.png)
+
+
+5. 没问题啦（还挺好看）
+
+这个answer我一开始以为是答案。
+
+![](https://cmd.dayi.ink/uploads/upload_0ff6e74ced8f6f495040b93102b9c7a0.png)
+
+## 11.13 统计信息
+
+### 11.13.1 统计成绩
+
+汇总学生成绩，进行相应的统计，通过图表展示。
+
+就写一个bia。
+
+这样就是管理端直接获取全部的Score。
+
+
+其实也蛮简单的。
+
+
+直接去刚才的地方的数据库表改一下就好PVP
+
+写一个mapper：
 
 
 
