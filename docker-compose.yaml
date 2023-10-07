@@ -1,0 +1,31 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 14001:8080
+    depends_on:
+      - db
+      - phpmyadmin
+    environment:
+      - mysql_host=db
+      - mysql_database=product
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - ./_data:/var/lib/mysql
+      - ./sql.sql:/docker-entrypoint-initdb.d/sql.sql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 14002:80
+    depends_on:
+      - db
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=123456

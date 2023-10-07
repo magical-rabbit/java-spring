@@ -30,7 +30,7 @@ public class RoleController {
     }
 
     @RequestMapping("/update")
-    
+
     public String update(Role role) {
         return roleService.update(role);
     }
