@@ -2,48 +2,89 @@
 
 > 我发现，这网页（cmd.dayi.ink）好卡啊。
 >
-> 目前进度：0.7（也没想到有这么多内容）
+> 目前进度：1.0（也没想到有这么多内容）
 
 
 > 我知道你想要什么：这里 <https://ghproxy.com/https://github.com/magical-rabbit/java-spring/archive/refs/heads/main.zip>
 
-请到这里继续看：
+
+
+这里可能更好的浏览体验哦（也不一定，这个文件是我写过最大的啦123kb了已经）
 
 Github:  https://github.com/magical-rabbit/java-spring/blob/main/docs/Rabbit.md
 
 老博客：https://type.dayiyi.top/index.php/archives/206/
 
+```bash
+2023年10月7日23:10:56
+好啦，写完啦。基本的功能实现啦。剩下的就是完善下文档啦。
+```
+
 ----
 
-## 代码下载（包括最新的文档）
+## 0.代码维护等相关。
 
-**都在这里：https://github.com/magical-rabbit/java-spring**
+### 0.0 胡萝卜！
+
+这里是一根胡萝北
 
 ![](https://cmd.dayi.ink/uploads/upload_09ef0bbe68de67795544fd8eddbed6a0.png)
 
+### 0.1 项目在线Demo！
 
+你想看项目什么样子吗？这里是docker部署的Demo！
 
->打开缓慢：可以用Steam++来加速访问（选github）（https://steampp.net/ 下载：选蓝奏云 https://wwn.lanzouy.com/imM6D19nxt9a 密码1234 ）
+【域名】
 
-不是很想用gitee，限制特别多，如果你们需要，请跟我说
+### 0.2 感慨
 
-代码：在这里👇，打开慢请用steam++试试。
+因为第一次写Spring boot的框架，所以用了Git来进行维护代码（方便回溯，万一写炸了很快就可以回到原先的地方）
+
+而且整个实训过程中，一直用的远程桌面，还是效率有点点低（电脑坏了，售后还推人，然后到现在没修好，一直在青岛，7月修到现在了），如果有什么疏忽的地方，还请多多谅解。
+
+### 0.3 Git代码维护
+
+直接用了公开仓库，也没啥隐私。（虽然数据库不小心PUSH上好几次，到现在干脆直接塞上（希望不要有人打），不过也没事啦）
+
+> 打开缓慢：可以用Steam++来加速访问（选github）
+>
+> Steam++下载（https://steampp.net/ 下载：选蓝奏云 https://wwn.lanzouy.com/imM6D19nxt9a 密码1234 ）
+
+**都在这里：https://github.com/magical-rabbit/java-spring**
+
+**镜像仓库（国内）：GITEE:**https://gitee.com/idayi/java-spring
 
 https://github.com/magical-rabbit/java-spring
 
 https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit/skd21/exam
 
-如何下载？
+> 如何下载Github代码？点这里就好
 
 ![image-20231006125304164](https://lspro.icee.top/i/2023/10/06/651f92bcbec1d.webp)
 
+直接下载？这里！直链:https://github.com/magical-rabbit/java-spring/archive/refs/heads/main.zip
+
+2023年10月7日23:17:24 截止到现在，这是仓库滴信息：
+
+![image-20231007231807221](https://lspro.icee.top/i/2023/10/07/652176c368724.webp)
+
+还是挺有成就感的，虽然超级超级累，但是还是算是把功能都基本上实现了，要是时间再多一点很多地方都可以再完善。
+
+![image-20231007231913430](https://lspro.icee.top/i/2023/10/07/652176fe303c4.webp)
 
 
-直链:https://github.com/magical-rabbit/java-spring/archive/refs/heads/main.zip
+
+还是有点访问流量滴！
+
+![image-20231007232018019](https://lspro.icee.top/i/2023/10/07/6521773f39983.webp)
+
+
+
+
 
 ---
 
-
+用这个来维护，下面是部分实验过程哦
 
 ## 1. 配置mvn
 
@@ -54,9 +95,7 @@ https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit
 <localRepository>F:/zhawa_/lib_repo/repository</localRepository>
 ```
 
-mvn 文件夹
-
-
+> mvn 文件夹
 
 ![](https://cmd.dayi.ink/uploads/upload_0ba11fa1d12ad7078ae19110f8137ffb.png)
 
@@ -64,8 +103,9 @@ mvn 文件夹
 
 ![](https://cmd.dayi.ink/uploads/upload_713932a8a9f30335acdc421573d9d7e4.png)
 
-
 ## 2. new project
+
+新建项目啦。这里是之前选修课的经验。
 
 
 ![](https://cmd.dayi.ink/uploads/upload_58d1232a6f944ae30e2412d6a3a14186.png)
@@ -73,30 +113,28 @@ mvn 文件夹
 
 ## 3. 项目结构
 
-pom.xml
-![](https://cmd.dayi.ink/uploads/upload_99e6224a2829f7651ee71ac3c897ff94.png)
+`pom.xml`包管理文件哦
 
+![](https://cmd.dayi.ink/uploads/upload_99e6224a2829f7651ee71ac3c897ff94.png)
 
 结构
 ![](https://cmd.dayi.ink/uploads/upload_7c1d0a56e0eced45f4b3c670cc5964a8.png)
 
-
-resource失效:
+如果遇到，resource失效的情况，请从这里重新mark哦
 ![](https://cmd.dayi.ink/uploads/upload_4641ae662622d8d76215a574c8b9b448.png)
 
 ## 4. 依赖
 
-微信文件pom.xml
+微信群文件pom.xml
 
-复制
+复制过来就好
 
 ![](https://cmd.dayi.ink/uploads/upload_7997b8a4e4bae25a9ee15adc1a949ec3.png)
 
 复制2
 ![](https://cmd.dayi.ink/uploads/upload_834a077803e2a63fa07cddf61cc8065a.png)
 
-
-重新load
+重新load（重新加载一下）
 ![](https://cmd.dayi.ink/uploads/upload_202bc5b8f401357c8caa41c1096006b9.png)
 
 （如果失败了，试试把那个repository全删掉试试）
@@ -127,10 +165,10 @@ resource失效:
 </project>
 ```
 
-## 4. 启动
+## 5. 启动
 
 
-新建class
+新建class，试试能不能启动成功
 
 ```javascript=    
 package net.dabbit.skd21;
@@ -155,7 +193,7 @@ public class App {
 ![](https://cmd.dayi.ink/uploads/upload_028d9d00321b8b768901c70402ed6617.png)
 
 
-新建包`com.exam.controller`
+新建包`com.exam.controller`，这个包后来是改成了`net.dabbit.skd21.exam.controller`
 
 新建文件
 ![](https://cmd.dayi.ink/uploads/upload_e28c750543dc96bcb904e75d33795599.png)
@@ -190,18 +228,21 @@ public class DemoController {
 重启
 ![](https://cmd.dayi.ink/uploads/upload_70c32d89bbb41eb39e8808939846aa9e.png)
 
-
 重启后：
-<http://localhost:8080/index>
+
+尝试访问：<http://localhost:8080/index>
 
 ![](https://cmd.dayi.ink/uploads/upload_6a3e27a22fa3a77bb1c0cb6d74c01560.png)
 
 
 
-### BookController
+### 5.1 BookController
 
-book
-```javascript=
+写一个controller！
+
+·book！
+
+```java
 
 package net.dabbit.skd21.exam.controller;
 
@@ -222,8 +263,11 @@ public class BookController {
 
 ```
 
-demo
-```javascript=
+### 5.2 DemoController
+
+demo！
+
+```java
 package net.dabbit.skd21.exam.controller;
 
 import org.springframework.stereotype.Controller;
@@ -287,9 +331,9 @@ http://localhost:8080/demo/add?name=ck&age=112
 
 <http://localhost:8080/demo/add1?name=ck&age=112>
 
-
 `demo.java`
-```javascript=
+
+```java
 package net.dabbit.skd21.exam.controller;
 
 import net.dabbit.skd21.exam.entity.DemoEntity;
@@ -331,7 +375,10 @@ public class DemoController {
 }
 ```
 
+### 5.3 Entity-Demo
+
 `DemoEntity.java`
+
 ```java=
 package net.dabbit.skd21.exam.entity;
 
@@ -358,32 +405,20 @@ public class DemoEntity {
 
 ```
 
----
+## 6. 静态文件
 
-以上为周一上午
-
-文件下载
-
-
-
-<https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_18_周一上午.7z>
-
----
-
-​    
-
-
-## 5. 静态文件
+静态文件不会自动加载？请从这里！
 
 ![](https://cmd.dayi.ink/uploads/upload_a3fba70c0523120385a84836cb2bb798.png)
 
 
 ![](https://cmd.dayi.ink/uploads/upload_c02b871d6add87b7dc6a2b5a44281a35.png)
 
+### 6.1 Demo.html
 
 `demo.html`
 
-```htmlmixed=
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -409,8 +444,11 @@ localhost:8080/pages/demo.html
 </html>
 ```
 
+### 6.2 demo.js
+
 `demo.js`
-```javascript=
+
+```javascript
 $(function(){
     //页面自动执行
     console.log(123);
@@ -427,33 +465,20 @@ var test  =  function (){
 }
 ```
 
-
-### 
+### 6.3 查找和替换？
 
 
 复制文件之后
 
 ctrl+r替换
 
-
----
-
-以上为周一下午
-
-文件下载
-
-
-
-<https://pic.icee.top/blog/pic_bed/2023/09/emis23_9_18_周一下午.7z>
-
----
-
-
-
 ## 7. 代码
 
+### 7.1 index.js
+
 `index.js`
-```javascript=
+
+```javascript
 $(function () {
   //自动执行的逻辑
   $.ajax({
@@ -466,16 +491,16 @@ $(function () {
 })
 ```
 
-
+这样底部就可以有999啦！
 
 ![](https://cmd.dayi.ink/uploads/upload_3e427533ad3ab699ccc61815137654bc.png)
 
 
-### 头部
+### 7.2 头部
 
 ![](https://cmd.dayi.ink/uploads/upload_79917f832bfb4a0bc61bd286ebf708a3.png)
 
-```javascript=
+```javascript
 $(function () {
   //自动执行的逻辑
   $.ajax({
@@ -531,8 +556,10 @@ $(function () {
 
 
 
+### 7.3 全部的index.html
+
 `index.html`
-```htmlmixed=
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -681,6 +708,7 @@ $(function () {
 </html>
 ```
 
+### 7.4 project-add.html
 
 project-add.html
 
@@ -688,22 +716,11 @@ project-add.html
 
 
 
-----
-以上为 周二上午
+### 7.5 周二下午的内容
 
-----
+### 7.5.1 首先是把包导入
 
-### 文件下载
-
-https://pic.icee.top/blog/pic_bed/2023/09/static_small_23_9_19.zip
-(仅包含修改文件)
-
-
-
-
-
-
-## 周二下午
+首先是把包导入！
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -790,6 +807,9 @@ https://pic.icee.top/blog/pic_bed/2023/09/static_small_23_9_19.zip
 </project>
 ```
 
+### 7.5.2 连接数据库！
+
+连接数据库！
 
 ![](https://cmd.dayi.ink/uploads/upload_dc707a39fc11170ee16ef10e5df409c1.png)
 
@@ -799,11 +819,15 @@ https://pic.icee.top/blog/pic_bed/2023/09/static_small_23_9_19.zip
 
 - `ovo`是你的数据库名
 
+### 7.6 登录相关的代码
 
+这里是登录的代码（实际上逻辑有点问题，就是传了个表单，然后返回了个值，并没有真的是登录）
 
-### login.js
+为什么是繁体中文？这得问远程桌面（我现在写这个文档还是用的远程桌面www）
 
-```javascript=
+#### 7.6.1  login.js
+
+```javascript
 var login = function (){
 
     //獲取輸入的用戶名密碼
@@ -846,9 +870,9 @@ var login = function (){
 }
 ```
 
-### login.html
+#### 7.6.2 login.html
 
-```htmlmixed=
+```html
 <input id="password" type="password" class="form-control" placeholder="密码">
 
  <input id="username" type="text" class="form-control" placeholder="用户名">
@@ -857,18 +881,15 @@ var login = function (){
 ```
 
 
-### 文件下载
 
-<https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_19周二晚上.zip>
+### 7.7 周三上午的内容
 
-
-
-## 周三上午
+用了MVC框架，所以这里要定义实体哦。
 
 
-### User.java (entity)
+### 7.7.1 User.java (entity)
 
-```javascript=
+```java
 package net.dabbit.skd21.exam.entity;
 
 import java.util.Date;
@@ -964,57 +985,26 @@ public class User {
     public void setClassId(Integer classId) {
         this.classId = classId;
     }
-}
+
 ```
 
+### 7.7.2 23.9.20_上午第二节课
 
-
-
----
-9_20——10点 文件下载
-
-:-1: 
-
-https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周三上午10点.zip
-
-
----
-
-
-## 23.9.20_上午
+实现了这个前端！
 
 ![](https://cmd.dayi.ink/uploads/upload_d32f36ac54162b065f17842d17b71944.png)
 
 
 
----
-9_20——11点 文件下载
+### 7.7.3 2023年9月20日_下午
 
-:-1: 
+### 7.7.4 `user-list.js`
 
-https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周三上午11点.zip
+这里是部分代码了，这个是获得用户列表的脚本。
 
+后来用了dayi-lib来简化了一次。
 
----
-
-
----
-9_20——12点 文件下载
-
-:-1: 
-
-https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周三上午12点.zip
-
-
----
-
-
-
-## 2023年9月20日_下午
-
-### `user-list.js`
-
-```javascript=
+```javascript
 $(function () {
     load_page()
 });
@@ -1092,10 +1082,15 @@ var load_page=function (){
 ```
 
 
-## 23.9.21
+### 7.8 周四的内容23.9.21
 
+这里已经是部分代码啦，当时上课的时候跟着很紧，所以没来得及写文档。
+
+后端写好接口之后，前端进行引用。
+
+### 7.8.1 user-add.js
 `user-add.js`
-```javascript=
+```javascript
 var mysubmit = function () {
     //获取所有的输入的值，组装成json对象
     var params = {
@@ -1128,6 +1123,9 @@ var mysubmit = function () {
 
 ```
 
+具体从数据库中查询的代码XML
+
+### 7.8.2 UserMapper.xml
 `UserMapper.xml`
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1217,9 +1215,29 @@ ${属性名} 原样输出
 </mapper>
 ```
 
+## 8.实训的文件下载
+
+到这里是老师带着做的项目，具体的实训文件在这里：下载（从dayi的小图床下载）
+
+- 周一上午 ： <https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_18_周一上午.7z>
+- 周一下午 ：<https://pic.icee.top/blog/pic_bed/2023/09/emis23_9_18_周一下午.7z>
+- 周二上午：<https://pic.icee.top/blog/pic_bed/2023/09/static_small_23_9_19.zip>
+- 周二晚上：<https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_19周二晚上.zip>
+- 周三上午10点 ：<https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周三上午10点.zip>
+- 周三上午11点：<https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周三上午11点.zip>
+- 周三上午12点：<https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周三上午12点.zip>
+- 周三下午3点: <https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周三下午3点.zip>
+
+- 周四上午9点: <https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周四上午9点.zip>
+
+- 周四上午12点: <https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周四上午12点.zip>
+
+
 ## 9. Mybatis 逆向工程
 
 > 这一步可以自动生成一些类，项目计划书上有的，跟着照做也可以，但是推荐你包名不一样，或者先把项目备份（复制粘贴）一下，防止替换。
+
+其实后期发现这个还是很有用的，真的省了一些事情，提升了编码的幸福感）
 
 ### 9.1 创建账号
 
@@ -1435,7 +1453,7 @@ pom.xml前文有啦,这里再复制一遍。
 
 同理同理，这里就是相关的信息。
 
-```yaml=
+```yaml
 spring:
   mvc:
     view:
@@ -1464,13 +1482,11 @@ spring:
 
 ![](https://cmd.dayi.ink/uploads/upload_1c832a1a9f93be9e39206837ee7b4cfe.png)
 
-
-service
+#### service
 
 ![](https://cmd.dayi.ink/uploads/upload_c10b4bc5ad3bdd049681ac34da66bb44.png)
 
-
-Mapper.xml
+#### Mapper.xml
 
 ![](https://cmd.dayi.ink/uploads/upload_fb7ab0664f4269124cc3aafc53ecf2e6.png)
 
@@ -1501,7 +1517,7 @@ Mapper.xml
 
 1. java类
 
-```javascript=
+```java
 package net.dabbit.skd21.exam.entity;
 
 public class Menu {
@@ -1597,7 +1613,7 @@ public interface MenuService {
 3. 服务实现
 
 `MenuServiceImpl`
-```javascript=
+```java
 package net.dabbit.skd21.exam.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
@@ -1679,8 +1695,6 @@ public class MenuServiceImpl implements MenuService{
 ### 11.1.2 前端实现
 
 
-
-
 1. 这个文件里添加一行这个，等会动态显示目录。
 
 `left-menu.html`
@@ -1704,100 +1718,237 @@ public class MenuServiceImpl implements MenuService{
 2. JS代码（能用，但是有BUG）
 
 
-    js(能用，但是不完全能用，目录树解析还有问题，没解析完美)
-    
-    ```javascript=
-    function generateMenu(menuData) {
-        var menuContainer = document.getElementById("show-menu");
-        var ul = document.createElement("ul");
-        ul.classList.add("nav", "nav-sidebar");
-    
-        // Sort the menu items based on the 'sort' property
-        menuData.data.sort(function (a, b) {
-            return a.sort - b.sort;
-        });
-    
-        menuData.data.forEach(function (menuItem) {
-            var li = document.createElement("li");
-            li.classList.add("nav-item");
-    
-            var a = document.createElement("a");
-            a.href = menuItem.menuUrl;
-            a.classList.add("nav-link");
-    
-            var i = document.createElement("i");
-            i.classList.add("nav-icon", "fas", "fa-circle");
-    
-            var p = document.createElement("p");
-            p.textContent = menuItem.menuName;
-    
-            a.appendChild(i);
-            a.appendChild(p);
-            li.appendChild(a);
-    
-            // Check if there are submenus (menuLevel 2 or 3)
-            var submenus = menuData.data.filter(function (submenu) {
-                return submenu.parentId === menuItem.id;
-            });
-    
-            if (submenus.length > 0) {
-                var submenuUl = document.createElement("ul");
-                submenuUl.classList.add("nav", "nav-treeview");
-    
-                submenus.forEach(function (submenuItem) {
-                    var submenuLi = document.createElement("li");
-                    submenuLi.classList.add("nav-item");
-    
-                    var submenuA = document.createElement("a");
-                    submenuA.href = submenuItem.menuUrl;
-                    submenuA.classList.add("nav-link");
-    
-                    var submenuI = document.createElement("i");
-                    submenuI.classList.add("far", "fa-circle", "nav-icon");
-    
-                    var submenuP = document.createElement("p");
-                    submenuP.textContent = submenuItem.menuName;
-    
-                    submenuA.appendChild(submenuI);
-                    submenuA.appendChild(submenuP);
-                    submenuLi.appendChild(submenuA);
-                    submenuUl.appendChild(submenuLi);
-                });
-    
-                li.appendChild(submenuUl);
-            }
-    
-            ul.appendChild(li);
-        });
-    
-        menuContainer.appendChild(ul);
-    }
+~~~javascript
+js(能用，但是不完全能用，目录树解析还有问题，没解析完美)
 
+```javascript=
+function generateMenu(menuData) {
+    var menuContainer = document.getElementById("show-menu");
+    var ul = document.createElement("ul");
+    ul.classList.add("nav", "nav-sidebar");
 
-    function getMenuDataAndGenerateMenu() {
-        $.ajax({
-            type: "GET",
-            url: "/menu/list",
-            dataType: "json",
-            success: function (data) {
-                if (data && data.data) {
-                    generateMenu(data); // Call the generateMenu function with the received data
-                } else {
-                    console.log("[dayi-error]获得菜单数据失败");
-                }
-            },
-            error: function () {
-                console.log("[dayi-error]An error occurred while retrieving menu data.");
-            },
-        });
-    }
-    
-    $(document).ready(function () {
-        getMenuDataAndGenerateMenu(); // Fetch and generate menu data on page load
+    // Sort the menu items based on the 'sort' property
+    menuData.data.sort(function (a, b) {
+        return a.sort - b.sort;
     });
 
+    menuData.data.forEach(function (menuItem) {
+        var li = document.createElement("li");
+        li.classList.add("nav-item");
 
-    ```
+        var a = document.createElement("a");
+        a.href = menuItem.menuUrl;
+        a.classList.add("nav-link");
+
+        var i = document.createElement("i");
+        i.classList.add("nav-icon", "fas", "fa-circle");
+
+        var p = document.createElement("p");
+        p.textContent = menuItem.menuName;
+
+        a.appendChild(i);
+        a.appendChild(p);
+        li.appendChild(a);
+
+        // Check if there are submenus (menuLevel 2 or 3)
+        var submenus = menuData.data.filter(function (submenu) {
+            return submenu.parentId === menuItem.id;
+        });
+
+        if (submenus.length > 0) {
+            var submenuUl = document.createElement("ul");
+            submenuUl.classList.add("nav", "nav-treeview");
+
+            submenus.forEach(function (submenuItem) {
+                var submenuLi = document.createElement("li");
+                submenuLi.classList.add("nav-item");
+
+                var submenuA = document.createElement("a");
+                submenuA.href = submenuItem.menuUrl;
+                submenuA.classList.add("nav-link");
+
+                var submenuI = document.createElement("i");
+                submenuI.classList.add("far", "fa-circle", "nav-icon");
+
+                var submenuP = document.createElement("p");
+                submenuP.textContent = submenuItem.menuName;
+
+                submenuA.appendChild(submenuI);
+                submenuA.appendChild(submenuP);
+                submenuLi.appendChild(submenuA);
+                submenuUl.appendChild(submenuLi);
+            });
+
+            li.appendChild(submenuUl);
+        }
+
+        ul.appendChild(li);
+    });
+
+    menuContainer.appendChild(ul);
+}
+~~~
+
+
+```javascript
+function getMenuDataAndGenerateMenu() {
+    $.ajax({
+        type: "GET",
+        url: "/menu/list",
+        dataType: "json",
+        success: function (data) {
+            if (data && data.data) {
+                generateMenu(data); // Call the generateMenu function with the received data
+            } else {
+                console.log("[dayi-error]获得菜单数据失败");
+            }
+        },
+        error: function () {
+            console.log("[dayi-error]An error occurred while retrieving menu data.");
+        },
+    });
+}
+
+$(document).ready(function () {
+    getMenuDataAndGenerateMenu(); // Fetch and generate menu data on page load
+});
+```
+
+
+```javascript
+//后面这里的代码已经修好了！，但还是想记录下过程
+function createNavItemWithLink(text, iconClass, link, onClick) {
+    // 创建 <li> 元素
+    var listItem = document.createElement("li");
+    listItem.classList.add("nav-item");
+
+    // 创建 <a> 元素
+    var linkElement = document.createElement("a");
+    linkElement.setAttribute("href", link);
+    linkElement.classList.add("nav-link");
+    linkElement.addEventListener("click", onClick);
+
+    // 创建 <i> 元素
+    var icon = document.createElement("i");
+    icon.classList.add(iconClass);
+    icon.classList.add("nav-icon");
+
+    // 创建 <p> 元素
+    var linkText = document.createElement("p");
+    linkText.innerText = text;
+
+    // 把 <i> 元素添加到 <a> 元素中
+    linkElement.appendChild(icon);
+
+    // 把 <p> 元素添加到 <a> 元素中
+    linkElement.appendChild(linkText);
+
+    // 把 <a> 元素添加到 <li> 元素中
+    listItem.appendChild(linkElement);
+
+    // 返回生成的 <li> 元素
+    return listItem;
+}
+
+/*
+使用方法：
+
+var listItem1 = createNavItemWithLink("新增頁", "far fa-circle", "javascript:void(0)", function() {
+  load_content('project-add.html');
+});
+
+var listItem2 = createNavItemWithLink("列表", "far fa-circle", "javascript:void(0)", function() {
+  load_content('project-list.html');
+});
+
+*/
+
+
+function createMenuItems(menuData, parentMenuId, menuContainer) {
+    // Filter out the submenu items for the specified parent menu
+    var subMenuItems = menuData.filter(function (menu) {
+        return menu.parentId === parentMenuId;
+    });
+
+    // Iterate over the submenu items
+    for (var i = 0; i < subMenuItems.length; i++) {
+        var menu = subMenuItems[i];
+        
+        //一级菜单
+        var listItem = document.createElement("li");
+        listItem.classList.add("nav-item");
+
+        var arror = document.createElement("a");
+        //<i class="right fas fa-angle-left"></i>
+        arror.classList.add("right");
+        arror.classList.add("fas");
+        arror.classList.add("fa-angle-left");
+        
+        // listItem.appendChild(arror);
+
+        //链接
+        var linkElement = document.createElement("a");
+        linkElement.setAttribute("href", "#");
+        linkElement.classList.add("nav-link");
+
+
+        //如果链接不为空，则进行访问
+        if(menu.menuUrl){
+            linkElement.setAttribute("onclick", `load_content("${menu.menuUrl}")`);
+        }
+        
+        linkElement.textContent = menu.menuName;
+
+        listItem.appendChild(linkElement);
+
+        //添加
+        menuContainer.appendChild(listItem);
+
+        //递归菜单
+        var subMenuContainer = document.createElement("ul");
+
+        //class
+        // subMenuContainer.classList.add("nav");
+        // subMenuContainer.classList.add("nav-treeview");
+        
+        //添加
+        listItem.appendChild(subMenuContainer);
+        createMenuItems(menuData, menu.id, subMenuContainer);
+    }
+}
+
+function generateMenu(menuData) {
+    //处理一下data
+    menuData = { "data": menuData.data };
+    var menuContainer = document.getElementById("show-menu");
+    createMenuItems(menuData.data, 0, menuContainer);
+}
+
+
+function getMenuDataAndGenerateMenu() {
+    $.ajax({
+        type: "GET",
+        url: "/menu/list",
+        data: { "pageSize": 114514 },
+        dataType: "json",
+        success: function (data) {
+            if (data && data.data) {
+                generateMenu(data); // Call the generateMenu function with the received data
+            } else {
+                console.log("[dayi-error]获得菜单数据失败");
+            }
+        },
+        error: function () {
+            console.log("[dayi-error]An error occurred while retrieving menu data.");
+        },
+    });
+}
+
+$(document).ready(function () {
+    getMenuDataAndGenerateMenu(); // Fetch and generate menu data on page load
+});
+
+```
 
 
 3. 前端真要命
@@ -1821,7 +1972,7 @@ public class MenuServiceImpl implements MenuService{
 
 去拿。
 
-```htmlmixed=
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1920,7 +2071,7 @@ public class MenuServiceImpl implements MenuService{
 这里直接复制文档的就可以。
 
 
-```javascript=
+```javascript
 $(function () {
     $("#jsGrid1").jsGrid({
 //        height: "100%",
@@ -1972,10 +2123,6 @@ $(function () {
 });
 ```
 
-
-
-
-
 ### 11.1.1.3 `MenuController.java`
 
 ![](https://cmd.dayi.ink/uploads/upload_72a08913cad1515c1638ea837335e4c1.png)
@@ -1984,10 +2131,6 @@ $(function () {
 之前写的就可以，返回的请求信息是符合文档的。
 
 ![](https://cmd.dayi.ink/uploads/upload_5e31c62a1649f401b18c11218e1ec0aa.png)
-
-
-
-
 
 
 ## 11.1.2 菜单列表
@@ -2034,7 +2177,7 @@ $(function () {
 
     `menu-add.html`
 
-    ```htmlmixed=
+    ```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -2124,9 +2267,8 @@ $(function () {
                             <label for="sort">排序</label>
                             <input type="text" id="sort" class="form-control">
                         </div>
-
-
-                    </div>
+                        
+                                        </div>
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
@@ -2141,8 +2283,6 @@ $(function () {
             </div>
         </div>
     </section>
-
-
     <!-- jQuery -->
     <script src="../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -2151,8 +2291,6 @@ $(function () {
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
-
-
     <!--dayi_js-->
     <!--js-->
     <script src="../js/menu-add.js"></script>
@@ -2161,22 +2299,19 @@ $(function () {
     </body>
     </html>
 
+对着菜单信息进行改一下：
 
-    ```
-    
-    对着菜单信息进行改一下：
-    
-    ![](https://cmd.dayi.ink/uploads/upload_6d480b03928fac7303bfa8c3370b9d60.png)
-    
-    效果差不多这个样子：
-    
-    ![](https://cmd.dayi.ink/uploads/upload_014845f3023cbf338b33dc4044718b37.png)
+![](https://cmd.dayi.ink/uploads/upload_6d480b03928fac7303bfa8c3370b9d60.png)
+
+效果差不多这个样子：
+
+![](https://cmd.dayi.ink/uploads/upload_014845f3023cbf338b33dc4044718b37.png)
 
 
 
 2. 然后写menu-add.js
 
-    ```javascript=
+    ```javascript
     var menu_add_submit = function () {
         //获取所有的输入的值，组装成json对象
         var params = {
@@ -2220,8 +2355,6 @@ $(function () {
 
     ```java
     String add(JsGridData jsGridData);
-
-
     @Override
         public String add(JsGridData jsGridData) {
             int add_ = menuMapper.add(jsGridData);
@@ -2235,11 +2368,10 @@ $(function () {
             return JSONObject.toJSONString(msg);
     
     }
-    ```
 
 5. 写个mapper
 
-    ```java=
+    ```java
     public interface MenuMapper {
         List<Menu> list(JsGridData jsGridData);
         Long count(JsGridData jsGridData);
@@ -2303,10 +2435,7 @@ $(function () {
     </insert>
 	```
 
-
-
-
-    ![](https://cmd.dayi.ink/uploads/upload_1cff4c83b1b1dfa01757c30834a54785.png)
+​		![](https://cmd.dayi.ink/uploads/upload_1cff4c83b1b1dfa01757c30834a54785.png)
 
 
 7. 测试添加是否成功
@@ -2323,16 +2452,9 @@ $(function () {
 
 
 
-push代码到Github,记得下载下来自己改一下数据库连接属性（还有资源文件夹mark一下）
 
 
-
-
-
-
-
-
-### 11.1.3 菜单删除
+## 11.1.3 菜单删除
 
 1. 先写后端
 
@@ -2378,7 +2500,7 @@ service
 ![](https://cmd.dayi.ink/uploads/upload_25b0602e0281aa357e33c02edb4fc2a9.png)
 
 
-```javascript=
+```javascript
 res_str = `<a href='javascript:void(0)' onclick='modify_menu_func(${value});'>修改</a>`
                         + "&nbsp;&nbsp;&nbsp;&nbsp;"+`<a href='javascript:void(0)' onclick="del_menu_fuc(${value});">删除</a>`;
                     return res_str
@@ -2389,7 +2511,7 @@ res_str = `<a href='javascript:void(0)' onclick='modify_menu_func(${value});'>�
 ![](https://cmd.dayi.ink/uploads/upload_3d4ae48b6bed4e6d555d4d5f66326c1b.png)
 
 
-```javascript=
+```javascript
 var del_menu_fuc = function (del_id) {
     $.ajax({
         type:"post",
@@ -2501,14 +2623,13 @@ var del_menu_fuc = function (del_id) {
 
 这样就JS实现一下，把按钮换掉就好。
 
-menu-list.js
+`menu-list.js`
 
 ![](https://cmd.dayi.ink/uploads/upload_971fdb17fd6607857ec24713dce08c68.png)
 
 ![](https://cmd.dayi.ink/uploads/upload_d4d6a9645589e1fa0b8dc1a5030cf3b9.png)
 
-
-menu-add.js
+`menu-add.js`
 
 ![](https://cmd.dayi.ink/uploads/upload_7c6e3f99d37dfd41cffb11f5801ed643.png)
 
@@ -2520,7 +2641,7 @@ menu-add.js
 
 完整:
 
-```javascript=
+```javascript
 mode_label = "add"
 
 var menu_add_submit = function () {
@@ -2609,9 +2730,7 @@ $( document ).ready(function() {
 });
 ```
 
-
-
-menu-add.html
+`menu-add.html`
 
 ![](https://cmd.dayi.ink/uploads/upload_a8cefc49ca3b971a9b2715d20496a887.png)
 
@@ -2683,7 +2802,7 @@ JS还要改，先这样放上，临时够用了。
 ![](https://cmd.dayi.ink/uploads/upload_9c2dbab6ad8cbc334e059353d169af81.png)
 
 
-```javascript=
+```javascript
 //不完善版本0.5
 function createNavItemWithLink(text, iconClass, link, onClick) {
     // 创建 <li> 元素
@@ -2824,8 +2943,6 @@ $(document).ready(function () {
 https://github.com/magical-rabbit/java-spring/commit/2117709371bab8669b08f1acc491a39c52361e92
 
 
-
-
 ## 11.2 角色管理
 
 OK 下一部分
@@ -2847,7 +2964,7 @@ OK 下一部分
 
 复制这俩到head标签里，然后原先的就没有用了，直接删掉就好
 
-```htmlmixed=
+```html
 <link rel="stylesheet" href="../css/zTreeStyle/zTreeStyle.css" type="text/css">
 <script src="../js/ztree/jquery.ztree.all.min.js"></script>
 ```
@@ -2892,6 +3009,8 @@ OK 下一部分
 ---
 **目前没做出来， 我有点理解不了他的内容**
 
+现在做出来啦！
+
 ----
 
 这里更新一下，ROLE一样的实现：
@@ -2928,9 +3047,6 @@ OK 下一部分
 
 
 
-
-
------
 ## 11.3 用户管理
 
 ## 11.3.1 新增用户
@@ -2952,12 +3068,10 @@ OK 下一部分
 
 左边的用户管理，应该对应的是user-list.html，他也写错了。
 
-(见项目文件tools/sql_fix.sql)
+(见项目文件`tools/sql_fix.sql`)
 ```sql
 INSERT INTO `menu` (`menu_code`, `menu_name`, `menu_url`, `menu_level`, `parent_id`, `sort`) VALUES ('user-add', '新增用户', 'user-add.html', '2', 28, 2);
-
 UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
-
 ```
 ![](https://cmd.dayi.ink/uploads/upload_e47dc17781936af58762609cde333d75.png)
 
@@ -2975,8 +3089,6 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 逻辑没问题
 ![](https://cmd.dayi.ink/uploads/upload_a82502bd85de7c5740f934dc7e6dbeea.png)
 
-
-
 ## 11.4 模板管理
 
 
@@ -2993,7 +3105,7 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
 丑对不对，来行这个
 
-```htmlmixed=
+```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
 ```
 
@@ -3004,7 +3116,6 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 这样就更丑啦！
 
 ![](https://cmd.dayi.ink/uploads/upload_1a77d32bf18fb2b8b7276a9add6a47c3.png)
-
 
 加点CSS
 ![](https://cmd.dayi.ink/uploads/upload_7106f6960c3c9f1efe3b0877bf5b60cd.png)
@@ -3276,7 +3387,11 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
   这个必须做完之后的才能正常，要么就随便填个假的。
 
-## 11.4.1  新建模板-前端3-dayi函数库-测试
+## 11.4.1【dayi函数库-测试版本】
+
+> 因为重复性工作实在是太多啦，这样把前端简化，功能不变的同时，可以更快的修改各种各样的前端！
+>
+> 实际上用的过程中，只需要改10行以内的（主要是字段和中文），就可以完全生成一个前端！相关代码塞附录啦。
 
 1. dayi函数库
 
@@ -3358,7 +3473,7 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
    
    ![image-20231006115513147](https://lspro.icee.top/i/2023/10/06/651f852272c30.webp)
 
-## 11.4.3 更新列表-前端-dayi lib库的完善
+## 11.4.3 【dayi-函数库 ver1.0】更新列表-前端-dayi lib库的完善
 
 > 测试库的开发
 
@@ -3394,13 +3509,15 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
    回填
 
+   用了点异步，来调整顺序
+
    ![image-20231006135507445](https://lspro.icee.top/i/2023/10/06/651fa147e1dad.webp)
 
 9. 回填成功！
 
    ![image-20231006135614284](https://lspro.icee.top/i/2023/10/06/651fa18b5dd8e.webp)
 
-   好开心）））
+   **好开心）））**
 
    ![image-20231006135749318](https://lspro.icee.top/i/2023/10/06/651fa1e98b4e3.webp)
 
@@ -3473,20 +3590,6 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
    ![image-20231006150704508](https://lspro.icee.top/i/2023/10/06/651fd17cb928c.png)
 
-4. 3
-
-5. 3
-
-6. 3
-
-7. 3
-
-8. 3
-
-9. 
-
-10. 
-
 ### 11.5.2 题库管理-后端
 
 1. 依赖文件
@@ -3553,11 +3656,11 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
    ![image-20231006153617973](https://lspro.icee.top/i/2023/10/06/651fc947206bd.png)
 
-9. Question.java
+9. `Question.java`
 
    ![image-20231006153729124](https://lspro.icee.top/i/2023/10/06/651fc935666a2.png)
 
-10. QuestionOptions.java
+10. `QuestionOptions.java`
 
     ![image-20231006154027090](https://lspro.icee.top/i/2023/10/06/651fc9359d4f5.png)
 
@@ -3651,8 +3754,6 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 11.6.4 删除院系
 
 这些分一个做完就好，很简单啦。
-
-
 
 ### 11.6.1 院系管理-后端
 
@@ -3771,10 +3872,6 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 6. POSTMAN测试
 
    ![image-20231006205316821](https://lspro.icee.top/i/2023/10/06/652003408acd2.png)
-
-
-
-
 
 ### 11.7.2 前端
 
@@ -4031,11 +4128,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 ![](https://cmd.dayi.ink/uploads/upload_d56abc71a4ef8e70d74cb7bab5164b65.png)
 
-
-
 ## 11.11 试卷管理
-
-
 
 ### 11.11.1 复制类
 
@@ -4052,15 +4145,11 @@ pom.xml
 </dependency>
 ```
 
-
-### 11.11.1 复制类
-
 但是有个包导入失败
 
 ![](https://cmd.dayi.ink/uploads/upload_ccbfee999e15cfea15cbdd80a1195dd3.png)
 
-
-pom.xml
+`pom.xml`
 
 
 ```xml
@@ -4080,7 +4169,7 @@ pom.xml
 ![](https://cmd.dayi.ink/uploads/upload_2556e10f17f9a6b3789cc946cf0d703d.png)
 
 
-### 11.11.2 把包重写了一下，然后直接塞controller了。
+### 11.11.2 干脆把给的代码重写了一下，然后直接塞controller了，就跑起来啦！
 
 
 ![](https://cmd.dayi.ink/uploads/upload_aa62fbb20ddbc812f79f790196a82b59.png)
@@ -4141,7 +4230,7 @@ pom.xml
 
 随便写写，就这个样子
 
-![](https://cmd.dayi.ink/uploads/upload_60530b0ba59d3aae77bbbcd68ab5226f.png)
+![image-20231008003003231](https://lspro.icee.top/i/2023/10/08/65218797b97b7.webp)
 
 
 返回的json
@@ -4190,8 +4279,6 @@ pom.xml
     ]
 }
 ```
-
-
 
 
 ### 11.11.4 前端
@@ -4463,7 +4550,7 @@ controller:
 ![](https://cmd.dayi.ink/uploads/upload_86c9aa544b78c8b05a7e24ad6b074f8b.png)
 
 
-### 11.13.1 统计成绩-前端
+### 11.13.1.1 统计成绩-前端
 
 还是一样，利用dayijs只需要改几行即可完成。
 
@@ -4496,9 +4583,7 @@ ok，这样子就差不多啦。（超级超级累，一个人肝出来真的要
 
 
 
-## 菜单数据库
-
-
+## 12. 菜单数据库
 
 ![](https://cmd.dayi.ink/uploads/upload_afbef33b20c42bdfd83de735e11c8adf.png)
 
@@ -4570,7 +4655,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 
 
-## 项目结构
+## 13. 项目结构
 
 还是不少内容的）
 ![](https://cmd.dayi.ink/uploads/upload_41590fe07351b45107d970d5fe917700.png)
@@ -4578,12 +4663,144 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 
 
+### 13.1 看这一堆咖啡豆子
+
+![image-20231008003234600](https://lspro.icee.top/i/2023/10/08/6521882ebbd1f.webp)
+
+
+
+### 13.2 数不清的接口
+
+![image-20231008003308470](https://lspro.icee.top/i/2023/10/08/6521884621315.webp)
+
+![image-20231008003318095](https://lspro.icee.top/i/2023/10/08/6521884fa4560.webp)
+
+
+
+发现一个可以用AI生成COMMIT的，结果他跟我说我修改的内容太多了，GPT处理不过来）
+
+![image-20231008003731263](https://lspro.icee.top/i/2023/10/08/652189584fd53.webp)
+
+
+
+## 14. 项目构建
+
+![image-20231008004638619](https://lspro.icee.top/i/2023/10/08/65218b7a86040.webp)
+
+### 14.1 试试打包：
+
+![image-20231008005136671](https://lspro.icee.top/i/2023/10/08/65218ca7c9487.webp)
+
+### 14.2没有主属性
+
+![image-20231008005050868](https://lspro.icee.top/i/2023/10/08/65218c77ba9b3.webp)
+
+
+
+### 14.3 用这个插件试一试：
+
+
+
+试一试：
+
+![image-20231008005538502](https://lspro.icee.top/i/2023/10/08/65218d8bb1f9c.webp)
+
+![image-20231008005616661](https://lspro.icee.top/i/2023/10/08/65218dbda674d.webp)
+
+
+
+### 14.4 原神！启动！
+
+![image-20231008005646533](https://lspro.icee.top/i/2023/10/08/65218ddab2e32.webp)
+
+## 15.1 封装docker
+
+### 15.2 指定生成文件名
+
+```xml
+	<build>
+		<!-- 指定生成文件名 -->
+        <finalName>skd21_dayi_springboot</finalName>
+    </build>
+```
+
+![image-20231008011005845](https://lspro.icee.top/i/2023/10/08/652190fe37aee.webp)
+
+### 15.3 Dockerfile
+
+用最新的镜像就好
+
+![image-20231008011417620](https://lspro.icee.top/i/2023/10/08/652191f837f60.webp)
+
+自动构建就行，省事。
+
+```dockerfile
+FROM maven:latest as builder
+WORKDIR /app
+COPY ./src /app/src
+COPY pom.xml /app/pom.xml
+RUN mvn package
+
+FROM openjdk:8u342-jdk-oracle
+WORKDIR /opt/dayi/
+COPY --from=builder /app/target/skd21_dayi_springboot.jar /opt/dayi/skd21_dayi_springboot.jar
+CMD ["java", "-jar","skd21_dayi_springboot.jar"]
+```
+
+![image-20231008011755929](C:\Users\dayi\AppData\Roaming\Typora\typora-user-images\image-20231008011755929.png)
+
+### 15.3 docker-compose.yaml
+
+```yaml
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 14001:8080
+    depends_on:
+      - db
+      - phpmyadmin
+    environment:
+      - mysql_host=db
+      - mysql_database=product
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - ./_data:/var/lib/mysql
+      - ./sql.sql:/docker-entrypoint-initdb.d/sql.sql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 14002:80
+    depends_on:
+      - db
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=123456
+```
+
+sql文件需要注意一点点
+
+![image-20231008012227486](https://lspro.icee.top/i/2023/10/08/652193e156dba.webp)
+
+###  15.4 启动试试？
+
+
+
+
+
+
+
 ----
 
 
-## **最新代码**：
-
-![](https://cmd.dayi.ink/uploads/upload_09ef0bbe68de67795544fd8eddbed6a0.png)
+## 15. **最新代码**：
 
 **都在这里：**
 
@@ -4597,8 +4814,6 @@ https://github.com/magical-rabbit/java-spring
 
 https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit/skd21/exam
 
-
-
 如何下载？
 
 ![image-20231006125304164](https://lspro.icee.top/i/2023/10/06/651f92bcbec1d.webp)
@@ -4607,22 +4822,16 @@ https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit
 
 直链:https://github.com/magical-rabbit/java-spring/archive/refs/heads/main.zip
 
-
-
----
-
-
-## 文件下载
-
-- 周三下午3点: <https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周三下午3点.zip>
-
-- 周四上午9点: <https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周四上午9点.zip>
-
-- 周四上午12点: <https://pic.icee.top/blog/pic_bed/2023/09/emis_23_9_20_周四上午12点.zip>
-
-
-
-### 工具:
+## 16. 工具:
 
 - POSTMAN(好像也不如APIfox): https://dl.pstmn.io/download/latest/win64
-- JAVA中文报错: https://www.cnblogs.com/jayworld/p/8495174.html
+- JAVA中文报错: ~~https://www.cnblogs.com/jayworld/p/8495174.html~~
+
+
+
+
+
+## 16. 附录
+
+
+
