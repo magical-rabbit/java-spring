@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <link rel="stylesheet" href="../css/ztree/zTreeStyle/zTreeStyle.css" type="text/css">-->
+
+<!--    <script type="text/javascript" src="../js/jquery.ztree.all.min.js"></script>-->
+
+    <link rel="stylesheet" href="../css/zTreeStyle/zTreeStyle.css" type="text/css">
+</head>
+
+
+<body>
+
+
+<div class="form-group">
+    <label for="menuTree">菜单列表</label>
+    <ul id="menuTree" class="ztree"></ul>
+    <input type="hidden" id="menuIds" class="form-control">
+</div>
+<!--<ul id="menuTree" class="ztree"></ul>-->
+</body>
+
+
+<script src="../js/jquery-3.4.1.js"></script>
+<script src="../js/ztree/jquery.ztree.all.min.js"></script>
+<script src="../js/role-add.js"></script>
+
+<script>
+    $(function(){
+        var zTreeObj;//zTree对象
+        // zTree 的参数配置
+        var setting = {
+            view: {
+                selectedMulti: true, //设置是否能够同时选中多个节点
+                showIcon: true,  //设置是否显示节点图标
+                showLine: true,  //设置是否显示节点与节点之间的连线
+                showTitle: true,  //设置是否显示节点的title提示信息
+            },
+            data: {
+                simpleData: {
+                    enable: true//设置是否启用简单数据格式（zTree支持标准数据格式跟简单数据格式）
+                }
+            },
+            check:{
+                enable: true   //设置是否显示checkbox复选框
+            }
+        };
+        var zNodes = [   // zTree 的数据属性，此处使用简单数据格式
+            {id:"1", pId:"0", name: "超级管理员"},
+            {id:"11", pId:"1", name: "子节点1"},
+            {id:"12", pId:"1", name: "子节点2"}
+        ];
+        zTreeObj = $.fn.zTree.init($("#menuTree"), setting, zNodes);
+    });
+</script>
+
+
+
+</html>

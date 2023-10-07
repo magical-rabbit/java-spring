@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic"> -->
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .card-body {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .custom-select {
+            height: 35px;
+        }
+
+        .form-group input[type="text"] {
+            height: 35px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="dayi-form">
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="user_id">用户ID</label>
+                <input type="text" id="user_id"" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="subject_id">科目ID</label>
+                <input type="text" id="subject_id"" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="score">分数（哎我说，你想添加分数是不是在干啥啊）</label>
+                <input type="text" id="score" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="answer">Unix时间（看你改分数怎么添加这个）</label>
+                <input type="text" id="answer" class="form-control">
+            </div>
+
+            <!-- 按钮 -->
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" onclick="add_template_func()">保存</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../dist/js/demo.js"></script>
+
+
+    <!-- 我有点忍不了了 -->
+    <!-- 想写个通用的JS -->
+
+    <script src="../js/dayi-lib/libs-1.js"></script>
+
+
+    <script>
+        var add_template_func = function () {
+            var formData = collectFormData('.card-body');
+            sendDataToBackend("/score/add", formData, function (response) { alert("新增成功"); }, function (response) { alert("新增失败"); });
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
