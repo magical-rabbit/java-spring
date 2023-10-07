@@ -43,3 +43,5 @@ build/
 
 ## DB file###
 src/main/resources/application.yml
+src/main/java/net/dabbit/skd21/exam/utils/ExamGenerator.java
+docs/Rabbit.md
