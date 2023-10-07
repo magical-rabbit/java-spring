@@ -3,6 +3,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionUtil {
+
+    //废弃类
     private static final String URL = "jdbc:mysql://localhost:3306/ovo";
     private static final String USERNAME = "your_username";
     private static final String PASSWORD = "your_password";

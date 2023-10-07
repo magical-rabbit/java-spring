@@ -4378,6 +4378,87 @@ pom.xml
 写一个mapper：
 
 
+我想了想，直接写个分数管理就好啦呀。
+
+分数添加，分数查询，分数删除，分数修改。
+
+就这些就够啦。
+
+说干就干。
+
+![](https://cmd.dayi.ink/uploads/upload_d70c29d6d8f36fd25e0d90a64c1e25a7.png)
+
+
+![](https://cmd.dayi.ink/uploads/upload_94815cf4695ecd600759ac0bd76a7dc0.png)
+
+
+### ** 并且！你想都别想改分数 **
+
+![](https://cmd.dayi.ink/uploads/upload_1868bfff0a7dc0f98639c11e01ed3007.png)
+
+
+![](https://cmd.dayi.ink/uploads/upload_43a74bb762adfc36b2a96c57a55d89ac.png)
+
+**真男人是无法修改分数的！**
+
+他真的改了吗？
+
+**如改！**
+
+
+mapper剩下的直接跟之前的一样就可以。
+
+![](https://cmd.dayi.ink/uploads/upload_ea9d61b7a66cb796cf7bfa1cc1197f07.png)
+
+
+controller:
+
+![](https://cmd.dayi.ink/uploads/upload_0beb7f1be2a6a7ba4668325cb7a1d620.png)
+
+测试：
+![](https://cmd.dayi.ink/uploads/upload_135d845d8ebc6f3202a0149986256d70.png)
+
+数据不对
+
+![](https://cmd.dayi.ink/uploads/upload_2608d3a3cfc89170c3a493c619e20cc2.png)
+
+改过来啦。
+
+![](https://cmd.dayi.ink/uploads/upload_86c9aa544b78c8b05a7e24ad6b074f8b.png)
+
+
+### 11.13.1 统计成绩-前端
+
+还是一样，利用dayijs只需要改几行即可完成。
+
+![](https://cmd.dayi.ink/uploads/upload_f72fa4fffda6e79e2dcde4c811881dcb.png)
+
+
+维护下菜单数据库
+![](https://cmd.dayi.ink/uploads/upload_330ab38f25b6f824b3ec47c6a03f8b7d.png)
+
+
+1. 新增分数
+
+![](https://cmd.dayi.ink/uploads/upload_619186e97a4180ae98baf05665dbb23d.png)
+
+分数当然是不可以新增的啦。
+给你留接口，你能填进去Date类，就去改分数吧。
+
+
+![](https://cmd.dayi.ink/uploads/upload_2a1904f9653e8c3ab6328fbba74c1ff8.png)
+
+2. 列表
+
+![](https://cmd.dayi.ink/uploads/upload_889165a7faecd99c4fa28ee06ef0bdf4.png)
+
+![](https://cmd.dayi.ink/uploads/upload_9883539b39c066500c8fa95cb9b05262.png)
+
+
+ok，这样子就差不多啦。（超级超级累，一个人肝出来真的要命）
+
+
+
 
 ----
 

@@ -104,4 +104,15 @@
     WHERE user_id = #{user_id}
   </select>
 
+
+  <!--    获得列表-->
+  <select id="list" parameterType="net.dabbit.skd21.exam.entity.JsGridData" resultMap="BaseResultMap">
+    SELECT * FROM score
+    limit #{offset},#{pageSize}
+  </select>
+
+  <!-- 计数 -->
+  <select id="count" parameterType="net.dabbit.skd21.exam.entity.JsGridData" resultType="java.lang.Long">
+    select count(*) from score
+  </select>
 </mapper>

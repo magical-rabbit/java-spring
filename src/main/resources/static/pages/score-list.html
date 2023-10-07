@@ -55,7 +55,10 @@
     <script>
         fields = [
             { title: "ID", name: "id", type: "text", width: 150 },
-            { title: "院系", name: "facultyName", type: "text", width: 150 },
+            { title: "用户ID", name: "userId", type: "text", width: 150 },
+            { title: "科目ID", name: "subjectId", type: "text", width: 150 },
+            { title: "分数", name: "score", type: "text", width: 150 },
+            { title: "答题时间UNIX", name: "answer", type: "text", width: 150 },
             {
                 title: "操作", name: "id", type: "text", width: 150,
                 itemTemplate: function (value, item) {
@@ -65,21 +68,21 @@
                 }
             }
         ]
-        //jquery
-        //加载列表
+        url_fst = "score"
+
         $(document).ready(function() {
             check_();
             loadDayiList();
             // 这里带斜杠哦
-            dayi_load_list(fields, "/faculty/list", "jsGrid1")  
+            dayi_load_list(fields, `/${url_fst}/list`, "jsGrid1")  
         })
 
         function dayi_update(id) {
-            upup_(fields,id,"/faculty/update",dayi_tmp_arr)
+            upup_(fields,id,`/${url_fst}/update`,dayi_tmp_arr)
         }
 
         function dayi_del(id){
-            deldel_(id,"/faculty/del",function (response){
+            deldel_(id,`/${url_fst}/del`,function (response){
                 alert("删除成功")
             },function (response){
                 alert("删除失败")

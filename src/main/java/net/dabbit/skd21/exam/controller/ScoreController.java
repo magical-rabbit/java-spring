@@ -3,8 +3,12 @@ package net.dabbit.skd21.exam.controller;
 import com.alibaba.fastjson.JSONObject;
 import net.dabbit.skd21.exam.autogen.entity.Score;
 import net.dabbit.skd21.exam.autogen.mapper.ScoreMapper;
+import net.dabbit.skd21.exam.entity.JsGridData;
+import net.dabbit.skd21.exam.entity.Major;
 import net.dabbit.skd21.exam.entity.User;
 import net.dabbit.skd21.exam.mapper.UserMapper;
+import net.dabbit.skd21.exam.service.MajorService;
+import net.dabbit.skd21.exam.service.ScoreService;
 import net.dabbit.skd21.exam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,4 +54,35 @@ public class ScoreController {
         msg.put("info","错误的用户名或者密码");
         return JSONObject.toJSONString(msg);
     }
+
+
+    @Autowired
+    ScoreService scoreService;
+
+    @RequestMapping("/list")
+    @ResponseBody
+    public String list(JsGridData jsdata) {
+        return scoreService.list(jsdata);
+    }
+
+    @RequestMapping("/add")
+    @ResponseBody
+    public String add(Score score) {
+        return scoreService.add(score);
+    }
+
+
+    //如改函数。
+    @RequestMapping("/update")
+    @ResponseBody
+    public String update(Score score) {
+        return scoreService.update(score);
+    }
+
+    @RequestMapping("/del")
+    @ResponseBody
+    public String del(Integer id) {
+        return scoreService.del(id);
+    }
+
 }

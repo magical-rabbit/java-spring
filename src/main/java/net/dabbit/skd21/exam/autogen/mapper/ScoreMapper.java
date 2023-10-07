@@ -1,6 +1,8 @@
 package net.dabbit.skd21.exam.autogen.mapper;
 
 import net.dabbit.skd21.exam.autogen.entity.Score;
+import net.dabbit.skd21.exam.autogen.entity.Subject;
+import net.dabbit.skd21.exam.entity.JsGridData;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -24,4 +26,7 @@ public interface ScoreMapper {
     Score queryByUserIdAndSubjectId(int user_id,int score_id);
 
     List<Score> queryByUserId(int user_id);
+
+    Long count(JsGridData jsGridData);
+    List<Score> list(JsGridData jsGridData);
 }
