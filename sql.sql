@@ -1,20 +1,15 @@
 DROP DATABASE IF EXISTS ovo;
 CREATE DATABASE ovo;
+use ovo;
 
 /*
  Navicat Premium Data Transfer
-
- Source Server         : super-rabbir.dayi.ink
- Source Server Type    : MySQL
- Source Server Version : 100325
- Source Host           : super-rabbit.dayi.ink:18206
- Source Schema         : ovo
 
  Target Server Type    : MySQL
  Target Server Version : 100325
  File Encoding         : 65001
 
- Date: 08/10/2023 00:11:53
+ Date: 08/10/2023 11:05:24
 */
 
 SET NAMES utf8mb4;
@@ -147,7 +142,7 @@ CREATE TABLE `menu`  (
   `parent_id` int NULL DEFAULT NULL,
   `sort` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 68 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu
@@ -190,6 +185,7 @@ INSERT INTO `menu` VALUES (61, 'show-my-score', '查询分数', 'show-my-score.h
 INSERT INTO `menu` VALUES (62, 'score', '分数管理', NULL, '1', 0, 1);
 INSERT INTO `menu` VALUES (63, 'score-add', '新增分数（确定吗）', 'score-add.html', '2', 62, 1);
 INSERT INTO `menu` VALUES (64, 'score-list', '分数列表', 'score-list.html', '2', 62, 1);
+INSERT INTO `menu` VALUES (66, 'user-list', '用户列表', 'user-list.html', '2', 28, 2);
 
 -- ----------------------------
 -- Table structure for question_bank

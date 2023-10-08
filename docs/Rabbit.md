@@ -4580,7 +4580,13 @@ controller:
 
 ok，这样子就差不多啦。（超级超级累，一个人肝出来真的要命）
 
+## 11.14 小修
 
+有些内容还是要修改一下，记录一下。
+
+### 11.14.1 index重定向
+
+![image-20231008110456879](https://lspro.icee.top/i/2023/10/08/65221c59c479a.webp)
 
 
 ## 12. 菜单数据库
@@ -4681,7 +4687,9 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 ![image-20231008003731263](https://lspro.icee.top/i/2023/10/08/652189584fd53.webp)
 
+### 13.3 dayi小功能库
 
+![image-20231008094624655](https://lspro.icee.top/i/2023/10/08/652209f2d6f7f.webp)
 
 ## 14. 项目构建
 
@@ -4747,7 +4755,7 @@ COPY --from=builder /app/target/skd21_dayi_springboot.jar /opt/dayi/skd21_dayi_s
 CMD ["java", "-jar","skd21_dayi_springboot.jar"]
 ```
 
-![image-20231008011755929](C:\Users\dayi\AppData\Roaming\Typora\typora-user-images\image-20231008011755929.png)
+![image-20231008011755929](https://lspro.icee.top/i/2023/10/08/652192d41db56.webp)
 
 ### 15.3 docker-compose.yaml
 
@@ -4791,16 +4799,53 @@ sql文件需要注意一点点
 
 ###  15.4 启动试试？
 
+![image-20231008014813554](https://lspro.icee.top/i/2023/10/08/652199e98a08c.webp)
 
 
 
+
+
+![image-20231008014851733](https://lspro.icee.top/i/2023/10/08/65219a0fefe6d.webp)
+
+
+
+![image-20231008014952927](https://lspro.icee.top/i/2023/10/08/65219a461f05d.webp)
+
+
+
+![image-20231008015036892](https://lspro.icee.top/i/2023/10/08/65219a7833db0.webp)
+
+
+
+没想到端口被占用了
+
+![image-20231008015139597](https://lspro.icee.top/i/2023/10/08/65219ab1077f5.webp)
+
+
+
+成功啦！
+
+![image-20231008015236156](https://lspro.icee.top/i/2023/10/08/65219ae9c7cc5.webp)
+
+
+
+库有点问题，明天修，忘了USE database了。
+
+![image-20231008015430035](https://lspro.icee.top/i/2023/10/08/65219b67e8100.webp)
+
+
+
+### 15.5 完整的部署方法：
+
+```bash
+```
 
 
 
 ----
 
 
-## 15. **最新代码**：
+## 16. **最新代码**：
 
 **都在这里：**
 
@@ -4822,7 +4867,7 @@ https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit
 
 直链:https://github.com/magical-rabbit/java-spring/archive/refs/heads/main.zip
 
-## 16. 工具:
+## 17. 工具:
 
 - POSTMAN(好像也不如APIfox): https://dl.pstmn.io/download/latest/win64
 - JAVA中文报错: ~~https://www.cnblogs.com/jayworld/p/8495174.html~~
@@ -4831,7 +4876,519 @@ https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit
 
 
 
-## 16. 附录
+## 18. 附录
+
+就写一点有特色的东东，其他的请参考源文件
 
 
+
+### 18.1 dayi-libs
+
+前端快速库
+
+目录：`java-spring\src\main\resources\static\js`
+
+### 18.1.1 更新模板update.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic"> -->
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .card-body {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .custom-select {
+            height: 35px;
+        }
+
+        .form-group input[type="text"] {
+            height: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 新增就不写了 -->
+    <!-- 直接写修改 -->
+    <div id="dayi-form">
+        <div class="card-body" id="card-body">
+            <div class="form-group">
+                <label for="multiple_difficulty_proportion">模板</label>
+                <input type="text" id="multiple_difficulty_proportion" class="form-control" placeholder="例如5:3:1:1">
+            </div>
+            
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../dist/js/demo.js"></script>
+</body>
+</html>
+```
+
+### 18.1.2 依赖库检查
+
+```js
+function check_(){
+    if (typeof jQuery === 'undefined') {
+        console.error('[dayi-lib]jQuery is not loaded. Make sure it is included before jsGrid.');
+        
+        return;
+    }
+    console.log('[dayi-lib-check]jQuery loaded.🔊')
+
+    if (typeof jQuery.fn.jsGrid === 'undefined') {
+        console.error('[dayi-lib]jsGrid is not loaded or not defined.');
+        return;
+    }
+    console.log('[dayi-lib-check]jsGrid loaded.🔊')
+}
+```
+
+### 18.1.3 改删查
+
+```js
+// 初始化全局变量
+
+async function load_page() {
+    try {
+        const response = await fetch('../js/dayi-lib/template/update.html');
+        if (response.ok) {
+            const html = await response.text();
+            document.getElementById('content').innerHTML = html;
+        } else {
+            console.error('[dayi-lib-page]Failed to fetch the HTML:', response.status);
+        }
+    } catch (error) {
+        console.error('[dayi-lib-load-page]An error occurred while fetching the HTML:', error);
+    }
+}
+
+
+
+function get_data() {
+    document.getElementById("card-body")
+}
+
+
+function toCamelCase(str) {
+    return str.replace(/_([a-z])/g, function (match, letter) {
+        return letter.toUpperCase();
+    });
+}
+
+//获得表单数据
+function collectFormData(parentElementSelector) {
+    var formData = {};
+    $(parentElementSelector).find('input, select').each(function() {
+        var $this = $(this);
+        if($this.attr('type') !== 'submit') {
+            var camelCaseName = toCamelCase($this.attr('id'));
+            formData[camelCaseName] = $this.val();
+        }
+    });
+    return formData;
+}
+
+
+//发送到后端
+function sendDataToBackend(endpoint, data, successCallback, errorCallback) {
+    $.ajax({
+        type: "post",
+        url: endpoint,
+        data: data,
+        dataType: "json",
+        success: function(response) {
+            if(response.code === "200") {
+                console.log("[dayi-lib]成功发送到后端，数据:");
+                console.log(data)
+                successCallback(response);
+            } else {
+                console.log("[dayi-lib-error]发送到后端失败，数据:"+data+"，错误码:"+response.code);
+                errorCallback(response);
+            }
+        },
+        error: function(response) {
+            console.log("[dayi-lib-error]发送到后端失败，数据:");
+            console.log(data)
+            alert("[dayi-lib-error]后端炸啦！或者网络原因请求发送失败")
+            errorCallback(response);
+        }
+    });
+}
+
+
+//提交数据
+async function dayi_update_data(update_url){
+    //表单数据获得
+    form_data = collectFormData(".card-body")
+    console.log("[dayi-lib]from_data:")
+    console.log(form_data);
+
+    // debugger
+    //发送到后端
+    sendDataToBackend(update_url, form_data, function(response) {alert("修改成功");}, function(response) {alert("修改失败");});
+}
+
+//生成表单
+async function gen_html(form_arr,nowdata_id,update_url){
+    // debugge
+    const formContainer = document.getElementById("card-body");
+
+
+    // 生成ID
+    const div = document.createElement("div");
+    div.classList.add("form-group");
+    const label = document.createElement("label");
+    label.setAttribute("for", "ID");
+    label.textContent = "ID（信息不可修改，但是不给你隐藏，哼OVO）";
+    const input = document.createElement("input");
+    input.setAttribute("type", "text");
+    input.setAttribute("id", "id");
+    input.setAttribute("name", "id");
+    input.setAttribute("class", "form-control");
+    input.setAttribute("readonly", "readonly");
+    input.value = nowdata_id;
+    input.style.width = `${300}px`;
+    div.appendChild(label);
+    div.appendChild(input);
+    formContainer.appendChild(div);
+    // 生成ID
+
+    form_arr.forEach(field => {
+        if(field.name=="id"){
+            //跳过ID
+            return
+        }
+
+        const div = document.createElement("div");
+        div.classList.add("form-group");
+        const label = document.createElement("label");
+        label.setAttribute("for", field.name);
+        label.textContent = field.title;
+        const input = document.createElement("input");
+        input.setAttribute("type", field.type);
+        input.setAttribute("id", field.name);
+        input.setAttribute("name", field.name);
+        input.setAttribute("class", "form-control");
+        //提示词
+        input.setAttribute("placeholder", `${field.title}`);
+        input.style.width = `${field.width*4}px`;
+        div.appendChild(label);
+        div.appendChild(input);
+        formContainer.appendChild(div);
+    });
+
+    const buttonDiv = document.createElement("div");
+    buttonDiv.classList.add("form-group");
+
+    const saveButton = document.createElement("button");
+    saveButton.setAttribute("type", "button");
+    saveButton.setAttribute("class", "btn btn-primary");
+    saveButton.setAttribute("onclick", `dayi_update_data("${update_url}");`);
+    saveButton.textContent = "保存";
+    // saveButton.onclick = dayi_update_data;
+
+    buttonDiv.appendChild(saveButton);
+    formContainer.appendChild(buttonDiv);
+    
+}
+
+
+
+
+
+async function dayi_update_init(form_arr,nowdata_id,update_url,successCallback,errorCallback) {
+    //加载模板文件
+    await load_page();
+    // 获得表单数据
+    // 应该手动生成表单
+    // form_arr = [
+    //     { title: "ID",name:"id", type: "text", width: 150 },
+    //     { title: "用户名",name:"username", type: "text", width: 150 },
+    //     { title: "真是姓名",name:"realName", type: "text", width: 150 },
+    //     { title: "学号",name:"sno", type: "text", width: 150 }
+    // ]
+    // 生成前端
+    await gen_html(form_arr,nowdata_id,update_url);
+}
+
+
+async function upup_(form_arr,now_id,update_url,tmp_arr){
+    // load_page()
+    await dayi_update_init(form_arr,now_id,update_url);
+    await fillfill_(tmp_arr[now_id])
+}
+
+
+async function fillfill_(item){
+    console.log("[dayi-lib]尝试自动回填数据..")
+    for (var key in item) {
+        if (item.hasOwnProperty(key)) {
+            // 构造对应表单字段的ID
+            var fieldId = "#" + key;
+            // 检查表单中是否存在具有相同ID的元素
+            if ($(fieldId).length) {
+                // 如果存在，设置其值为相应属性的值
+                $(fieldId).val(item[key]);
+            }
+        }
+    }
+    console.log("[dayi-lib]自动回填数据完成..(不一定成功）")
+}
+
+//删除
+
+//使用:
+// id , "/class/del"  , 两个回调函数
+async function deldel_(id,del_url,successCallback,errorCallback) {
+    console.log(`[dayi-lib]尝试删除数据.. ${id}`)
+    data = {"id": id};
+    $.ajax({
+        type: "post",
+        url: del_url,
+        data: data,
+        dataType: "json",
+        success: function(response) {
+            if(response.code === "200") {
+                console.log("[dayi-lib]成功发送到后端，数据:");
+                console.log(data)
+                successCallback(response);
+            } else {
+                console.log("[dayi-lib-error]发送到后端失败，数据:"+data+"，错误码:"+response.code);
+                errorCallback(response);
+            }
+        },
+        error: function(response) {
+            console.log("[dayi-lib-error]发送到后端失败，数据:");
+            console.log(data)
+            alert("[dayi-lib-error]后端炸啦！或者网络原因请求发送失败")
+            errorCallback(response);
+        }
+    });
+}
+```
+
+
+
+### 18.1.4 增，自动骆驼命名，获得表单数据，发送后端
+
+```js
+
+// this_is => thisIs
+function toCamelCase(str) {
+    return str.replace(/_([a-z])/g, function (match, letter) {
+        return letter.toUpperCase();
+    });
+}
+
+
+
+//获得表单数据
+function collectFormData(parentElementSelector) {
+    var formData = {};
+
+    $(parentElementSelector).find('input, select').each(function() {
+        var $this = $(this);
+        if($this.attr('type') !== 'submit') {
+            var camelCaseName = toCamelCase($this.attr('id'));
+            formData[camelCaseName] = $this.val();
+        }
+    });
+
+    return formData;
+}
+
+
+//发送到后端
+function sendDataToBackend(endpoint, data, successCallback, errorCallback) {
+    $.ajax({
+        type: "post",
+        url: endpoint,
+        data: data,
+        dataType: "json",
+        success: function(response) {
+            if(response.code === "200") {
+                console.log("[dayi-lib]成功发送到后端，数据:");
+                console.log(data)
+                successCallback(response);
+            } else {
+                console.log("[dayi-lib-error]发送到后端失败，数据:"+data+"，错误码:"+response.code);
+                errorCallback(response);
+            }
+        },
+        error: function(response) {
+            console.log("[dayi-lib-error]发送到后端失败，数据:"+data.tostring());
+            alert("[dayi-lib-error]后端炸啦！或者网络原因请求发送失败")
+            errorCallback(response);
+        }
+    });
+}
+
+```
+
+### 18.1.5 加载jsGrid 
+
+支持引用回调函数
+
+```js
+//存放当前列表数据的数组
+dayi_tmp_arr = {};
+
+
+function loadDayiList() {
+    // const xhr = new XMLHttpRequest();
+    // // xhr.open('GET', '../js/dayi-lib/list-template.html', true);
+    // xhr.onreadystatechange = function() {
+    //     if (this.readyState === 4 && this.status === 200) {
+    //         document.getElementById('dayi-list').innerHTML = this.responseText;
+    //     }
+    // };
+    // xhr.send();
+}
+
+
+function dayi_load_list(fields=[{ title: "ID",name:"id", type: "text", width: 150 }],post_url="/user/list",object_="#jsGrid1",pageSize=3){
+    initializePageGrid(fields,post_url,object_,pageSize)
+}
+
+
+function initializePageGrid(fields=[{ title: "ID",name:"id", type: "text", width: 150 }],post_url="/user/list",object_="#jsGrid1",pageSize=3) {
+    const jsgrid = document.getElementById("jsGrid1")
+
+    $("#jsGrid1").jsGrid({
+        width: "100%",
+        height: "auto",
+        sorting: true,
+        paging: true,
+        pageLoading: true,
+        autoload: true,
+        controller: {
+            loadData: function (filter) {
+                tmp_arr = {}; // 初始化
+                filter["search"] = $("#search").val();
+                return $.ajax({
+                    type: "post",
+                    url: post_url,
+                    dataType: "json",
+                    data: filter
+                });
+            }
+        },
+        pageIndex: 1,
+        pageSize: 3,
+        pageButtonCount: 10,
+        pagePrevText: "上一页",
+        pageNextText: "下一页",
+        pageFirstText: "首页",
+        pageLastText: "尾页",
+        fields: fields
+    })
+}
+```
+
+### 18.1.6 新增引用
+
+![image-20231008014311499](C:\Users\dayi\AppData\Roaming\Typora\typora-user-images\image-20231008014311499.png)
+
+```html
+    <script src="../js/dayi-lib/libs-1.js"></script>
+
+
+    <script>
+        var add_template_func = function () {
+            var formData = collectFormData('.card-body');
+            sendDataToBackend("/faculty/add", formData, function (response) { alert("新增成功"); }, function (response) { alert("新增失败"); });
+        }
+    </script>
+```
+
+### 18.1.7 删改查引用
+
+仅修改这两部分
+
+![image-20231008014458688](https://lspro.icee.top/i/2023/10/08/6521992894714.webp)
+
+```html
+
+    <script src="../js/dayi-lib/check_.js"></script>
+    <script src="../js/dayi-lib/load_list.js"></script>
+
+
+    <script src="../js/dayi-lib/dayi_update.js"></script>
+    <script>
+        fields = [
+            { title: "ID", name: "id", type: "text", width: 150 },
+            { title: "角色代码", name: "roleCode", type: "text", width: 150 },
+            { title: "角色名字", name: "roleName", type: "text", width: 150 },
+            {
+                title: "操作", name: "id", type: "text", width: 150,
+                itemTemplate: function (value, item) {
+                    dayi_tmp_arr[value] = item;
+                    return `<a href='javascript:void(0)' onclick='dayi_update(${item["id"]})'>修改</a>`
+                        + `&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:void(0)' onclick='dayi_del(${item["id"]})'>删除</a>`;
+                }
+            }
+        ]
+        url_fst = "role"
+
+        $(document).ready(function() {
+            check_();
+            loadDayiList();
+            // 这里带斜杠哦
+            dayi_load_list(fields, `/${url_fst}/list`, "jsGrid1")  
+        })
+
+        function dayi_update(id) {
+            upup_(fields,id,`/${url_fst}/update`,dayi_tmp_arr)
+        }
+
+        function dayi_del(id){
+            deldel_(id,`/${url_fst}/del`,function (response){
+                alert("删除成功")
+            },function (response){
+                alert("删除失败")
+            })
+        }
+    </script>
+```
 
