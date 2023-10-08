@@ -52,11 +52,11 @@ Github:  https://github.com/magical-rabbit/java-spring/blob/main/docs/Rabbit.md
 
 **都在这里：https://github.com/magical-rabbit/java-spring**
 
-**镜像仓库（国内）：GITEE:**https://gitee.com/idayi/java-spring
+**镜像仓库（国内-不建议）：GITEE:**https://gitee.com/idayi/java-spring
 
-https://github.com/magical-rabbit/java-spring
+![镜像](https://lspro.icee.top/i/2023/10/08/652221ff637c6.webp)
 
-https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit/skd21/exam
+
 
 > 如何下载Github代码？点这里就好
 
@@ -3288,11 +3288,11 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
 - 补：他在html叫这个
 
-  ![image-20231006003319141](C:\Users\dayi\AppData\Roaming\Typora\typora-user-images\image-20231006003319141.png)
+  ![image-20231006003319141](https://lspro.icee.top/i/2023/10/08/652247e4e52a5.webp)
 
   数据库里的表：
 
-  ![image-20231006003308930](C:\Users\dayi\AppData\Roaming\Typora\typora-user-images\image-20231006003308930.png)
+  ![image-20231006003308930](https://lspro.icee.top/i/2023/10/08/652247e2c002a.webp)
 
 - 把两个写上就跑路。（没有学期，没有科目，怎么加载）
 
@@ -3533,7 +3533,7 @@ UPDATE `menu` SET `menu_url` = 'user-list.html' WHERE `id` = 36
 
 12. 试试
 
-    ![image-20231006140908145](C:\Users\dayi\AppData\Roaming\Typora\typora-user-images\image-20231006140908145.png)
+    ![image-20231006140908145](https://lspro.icee.top/i/2023/10/06/651fa490643f1.webp)
 
     好好好
 
@@ -4838,6 +4838,10 @@ sql文件需要注意一点点
 ### 15.5 完整的部署方法：
 
 ```bash
+#复制文件后
+unzip java-spring_docker_final.zip
+cd java-spring/
+sudo docker-compose up -d
 ```
 
 
@@ -4872,15 +4876,19 @@ https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit
 - POSTMAN(好像也不如APIfox): https://dl.pstmn.io/download/latest/win64
 - JAVA中文报错: ~~https://www.cnblogs.com/jayworld/p/8495174.html~~
 
+数据库：
 
-
-
+```bash
+host:a.dayiyi.top
+port:3306
+database:dayi_spr_bo_em
+username:dayi_spr_bo_em
+password:cC865eHwSAKsydEx
+```
 
 ## 18. 附录
 
-就写一点有特色的东东，其他的请参考源文件
-
-
+这里，只包含一点写的新的东东，其他的就不写啦
 
 ### 18.1 dayi-libs
 
@@ -4947,10 +4955,9 @@ https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit
     <div id="dayi-form">
         <div class="card-body" id="card-body">
             <div class="form-group">
-                <label for="multiple_difficulty_proportion">模板</label>
-                <input type="text" id="multiple_difficulty_proportion" class="form-control" placeholder="例如5:3:1:1">
+                <label for="multiple_difficulty_proportion">我是可爱的修改模板--来自dayi-lib库</label>
+                <input type="text" id="multiple_difficulty_proportion" readonly="readonly" class="form-control" placeholder="你好呀OVO，下面的内容是动态生成的哦！如果没有表示出现问题啦">
             </div>
-            
         </div>
     </div>
     <!-- jQuery -->
@@ -5328,7 +5335,7 @@ function initializePageGrid(fields=[{ title: "ID",name:"id", type: "text", width
 
 ### 18.1.6 新增引用
 
-![image-20231008014311499](C:\Users\dayi\AppData\Roaming\Typora\typora-user-images\image-20231008014311499.png)
+![image-20231008014311499](https://lspro.icee.top/i/2023/10/08/652198bd7a264.webp)
 
 ```html
     <script src="../js/dayi-lib/libs-1.js"></script>

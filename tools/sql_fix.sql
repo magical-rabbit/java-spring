@@ -54,13 +54,18 @@ INSERT INTO `ovo`.`menu`(`menu_code`, `menu_name`, `menu_url`, `menu_level`, `pa
 ---暴力！
 /*
  Navicat Premium Data Transfer
- Source Schema         : ovo
+
+ Source Server         : dayi_spr_bo_em
+ Source Server Type    : MySQL
+ Source Server Version : 50740
+ Source Host           : a.dayiyi.top:3306
+ Source Schema         : dayi_spr_bo_em
 
  Target Server Type    : MySQL
- Target Server Version : 100325
+ Target Server Version : 50740
  File Encoding         : 65001
 
- Date: 08/10/2023 00:11:53
+ Date: 08/10/2023 14:35:08
 */
 
 SET NAMES utf8mb4;
@@ -71,12 +76,12 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `class`;
 CREATE TABLE `class`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `faculty_id` int NULL DEFAULT NULL,
-  `major_id` int NULL DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `faculty_id` int(11) NULL DEFAULT NULL,
+  `major_id` int(11) NULL DEFAULT NULL,
   `class_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of class
@@ -93,14 +98,14 @@ INSERT INTO `class` VALUES (6, 4, 5, '9999班');
 -- ----------------------------
 DROP TABLE IF EXISTS `examination_question`;
 CREATE TABLE `examination_question`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NULL DEFAULT NULL,
-  `subject_id` int NULL DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NULL DEFAULT NULL,
+  `subject_id` int(11) NULL DEFAULT NULL,
   `question_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `answer` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `correct` int NULL DEFAULT NULL,
+  `correct` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of examination_question
@@ -111,10 +116,10 @@ CREATE TABLE `examination_question`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `faculty`;
 CREATE TABLE `faculty`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `faculty_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of faculty
@@ -134,11 +139,11 @@ INSERT INTO `faculty` VALUES (9, '智能装备学院');
 -- ----------------------------
 DROP TABLE IF EXISTS `major`;
 CREATE TABLE `major`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `faculty_id` int NULL DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `faculty_id` int(11) NULL DEFAULT NULL,
   `major_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of major
@@ -154,12 +159,12 @@ INSERT INTO `major` VALUES (5, 4, '古汉语');
 -- ----------------------------
 DROP TABLE IF EXISTS `major_semester`;
 CREATE TABLE `major_semester`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `major_id` int NULL DEFAULT NULL,
-  `school_year` int NULL DEFAULT NULL,
-  `semester` int NULL DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `major_id` int(11) NULL DEFAULT NULL,
+  `school_year` int(11) NULL DEFAULT NULL,
+  `semester` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of major_semester
@@ -172,9 +177,9 @@ INSERT INTO `major_semester` VALUES (2, 2024, NULL, 1);
 -- ----------------------------
 DROP TABLE IF EXISTS `major_semester_subject`;
 CREATE TABLE `major_semester_subject`  (
-  `major_semester_id` int NULL DEFAULT NULL,
-  `subject_id` int NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  `major_semester_id` int(11) NULL DEFAULT NULL,
+  `subject_id` int(11) NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of major_semester_subject
@@ -185,15 +190,15 @@ CREATE TABLE `major_semester_subject`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE `menu`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `menu_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `menu_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `menu_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `menu_level` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `parent_id` int NULL DEFAULT NULL,
-  `sort` int NULL DEFAULT NULL,
+  `parent_id` int(11) NULL DEFAULT NULL,
+  `sort` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 68 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of menu
@@ -210,7 +215,7 @@ INSERT INTO `menu` VALUES (34, 'role-add', '新增角色', 'role-add.html', '2',
 INSERT INTO `menu` VALUES (35, 'role-list', '角色列表', 'role-list.html', '2', 27, 2);
 INSERT INTO `menu` VALUES (36, 'user-add', '用户管理', 'user-add.html', '2', 28, 1);
 INSERT INTO `menu` VALUES (37, 'questions', '题库管理', '', '1', 0, 5);
-INSERT INTO `menu` VALUES (38, 'file-upload', '试题上传', 'test-upload.html', '2', 37, 1);
+INSERT INTO `menu` VALUES (38, 'file-upload', '题库上传', 'test-upload.html', '2', 37, 1);
 INSERT INTO `menu` VALUES (40, 'template', '模板管理', '', '1', 0, 1);
 INSERT INTO `menu` VALUES (41, 'template-list', '模板列表', 'template-list.html', '2', 40, 1);
 INSERT INTO `menu` VALUES (42, 'template-add', '模板新增', 'template.html', '2', 40, 2);
@@ -236,22 +241,23 @@ INSERT INTO `menu` VALUES (61, 'show-my-score', '查询分数', 'show-my-score.h
 INSERT INTO `menu` VALUES (62, 'score', '分数管理', NULL, '1', 0, 1);
 INSERT INTO `menu` VALUES (63, 'score-add', '新增分数（确定吗）', 'score-add.html', '2', 62, 1);
 INSERT INTO `menu` VALUES (64, 'score-list', '分数列表', 'score-list.html', '2', 62, 1);
+INSERT INTO `menu` VALUES (66, 'user-list', '用户列表', 'user-list.html', '2', 28, 2);
 
 -- ----------------------------
 -- Table structure for question_bank
 -- ----------------------------
 DROP TABLE IF EXISTS `question_bank`;
 CREATE TABLE `question_bank`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `subject_id` int NULL DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject_id` int(11) NULL DEFAULT NULL,
   `question_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `question_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `type` int NULL DEFAULT NULL,
-  `difficulty` int NULL DEFAULT NULL,
+  `type` int(11) NULL DEFAULT NULL,
+  `difficulty` int(11) NULL DEFAULT NULL,
   `answer` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `create_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of question_bank
@@ -380,12 +386,12 @@ INSERT INTO `question_bank` VALUES (136, 1, '0-84209b3d-9577-4e8f-ad46-284edff8f
 -- ----------------------------
 DROP TABLE IF EXISTS `question_options`;
 CREATE TABLE `question_options`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `question_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `options_text` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `options_code` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 545 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 545 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of question_options
@@ -868,19 +874,19 @@ INSERT INTO `question_options` VALUES (544, '0-84209b3d-9577-4e8f-ad46-284edff8f
 -- ----------------------------
 DROP TABLE IF EXISTS `question_template`;
 CREATE TABLE `question_template`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `template_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `major_id` int NULL DEFAULT NULL,
-  `subject_id` int NULL DEFAULT NULL,
-  `single_num` int NULL DEFAULT NULL,
-  `single_score` int NULL DEFAULT NULL,
+  `major_id` int(11) NULL DEFAULT NULL,
+  `subject_id` int(11) NULL DEFAULT NULL,
+  `single_num` int(11) NULL DEFAULT NULL,
+  `single_score` int(11) NULL DEFAULT NULL,
   `single_difficulty_proportion` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `multiple_num` int NULL DEFAULT NULL,
-  `multiple_score` int NULL DEFAULT NULL,
+  `multiple_num` int(11) NULL DEFAULT NULL,
+  `multiple_score` int(11) NULL DEFAULT NULL,
   `multiple_difficulty_proportion` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `aggregate_score` int NULL DEFAULT NULL,
+  `aggregate_score` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of question_template
@@ -896,11 +902,11 @@ INSERT INTO `question_template` VALUES (9, '223333', NULL, NULL, 2, 2, '2', 2, 2
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `role_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `role_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of role
@@ -913,9 +919,9 @@ INSERT INTO `role` VALUES (30, 'role-2', '测试角色-2');
 -- ----------------------------
 DROP TABLE IF EXISTS `role_menu`;
 CREATE TABLE `role_menu`  (
-  `role_id` int NULL DEFAULT NULL,
-  `menu_id` int NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  `role_id` int(11) NULL DEFAULT NULL,
+  `menu_id` int(11) NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of role_menu
@@ -940,13 +946,13 @@ INSERT INTO `role_menu` VALUES (30, 36);
 -- ----------------------------
 DROP TABLE IF EXISTS `score`;
 CREATE TABLE `score`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NULL DEFAULT NULL,
-  `subject_id` int NULL DEFAULT NULL,
-  `score` int NULL DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NULL DEFAULT NULL,
+  `subject_id` int(11) NULL DEFAULT NULL,
+  `score` int(11) NULL DEFAULT NULL,
   `answer` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of score
@@ -958,10 +964,10 @@ INSERT INTO `score` VALUES (1, 1, 1, 100, '2023-10-07 18:21:02');
 -- ----------------------------
 DROP TABLE IF EXISTS `subject`;
 CREATE TABLE `subject`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `subject_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of subject
@@ -974,18 +980,18 @@ INSERT INTO `subject` VALUES (2, '大学英语');
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-  `id` int NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户名',
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `real_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sex` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sno` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `admission_date` datetime(0) NULL DEFAULT NULL,
-  `faculty_id` int NULL DEFAULT NULL,
-  `major_id` int NULL DEFAULT NULL,
-  `class_id` int NULL DEFAULT NULL,
+  `faculty_id` int(11) NULL DEFAULT NULL,
+  `major_id` int(11) NULL DEFAULT NULL,
+  `class_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
@@ -1015,9 +1021,9 @@ INSERT INTO `user` VALUES (25, 'admin', 'admin', '213213', '0', '123231231', '20
 -- ----------------------------
 DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role`  (
-  `user_id` int NULL DEFAULT NULL,
-  `role_id` int NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  `user_id` int(11) NULL DEFAULT NULL,
+  `role_id` int(11) NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_role
