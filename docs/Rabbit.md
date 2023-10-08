@@ -4833,9 +4833,17 @@ sql文件需要注意一点点
 
 ![image-20231008015430035](https://lspro.icee.top/i/2023/10/08/65219b67e8100.webp)
 
+### 15.4.1 有可能需要改镜像源
 
+换了个国内服务器，构建失败hhh
 
-### 15.5 完整的部署方法：
+![image-20231008141846959](https://lspro.icee.top/i/2023/10/08/652249d2c9167.webp)
+
+这样就好啦。
+
+![image-20231008143135014](https://lspro.icee.top/i/2023/10/08/65224cd2cf4c3.webp)
+
+### 15.5 完整的部署方法!
 
 ```bash
 #复制文件后
@@ -4844,18 +4852,21 @@ cd java-spring/
 sudo docker-compose up -d
 ```
 
+等一会就会在14101端口上部署啦
 
+![image-20231008145452435](https://lspro.icee.top/i/2023/10/08/652252485d8ea.webp)
+
+![image-20231008145702593](C:\Users\dayi\AppData\Roaming\Typora\typora-user-images\image-20231008145702593.png)
 
 ----
 
-
 ## 16. **最新代码**：
+
+也可也见附录
 
 **都在这里：**
 
 >打开缓慢：可以用Steam++来加速访问（选github）（https://steampp.net/ 下载：选蓝奏云 https://wwn.lanzouy.com/imM6D19nxt9a 密码1234 ）
-
-不是很想用gitee，限制特别多，如果你们需要，请跟我说
 
 代码：在这里👇，打开慢请用steam++试试。
 
@@ -4864,12 +4875,6 @@ https://github.com/magical-rabbit/java-spring
 https://github.com/magical-rabbit/java-spring/tree/main/src/main/java/net/dabbit/skd21/exam
 
 如何下载？
-
-![image-20231006125304164](https://lspro.icee.top/i/2023/10/06/651f92bcbec1d.webp)
-
-
-
-直链:https://github.com/magical-rabbit/java-spring/archive/refs/heads/main.zip
 
 ## 17. 工具:
 
